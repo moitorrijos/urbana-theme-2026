@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Fontsource imports */
+@import "@fontsource/oswald/400.css";
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/600.css";
+@import "@fontsource/oswald/700.css";
+
+@import "@fontsource/montserrat/300.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+
+@import "@fontsource/rajdhani/400.css";
+@import "@fontsource/rajdhani/500.css";
+@import "@fontsource/rajdhani/600.css";
+@import "@fontsource/rajdhani/700.css";
+
+/* Custom theme based on design-specs.json */
+@theme {
+  /* Colors - Dark */
+  --color-top-bar: #2D2D2D;
+  --color-navbar: #4A4A4A;
+  --color-text-primary: #333333;
+
+  /* Colors - Accent */
+  --color-sky-blue: #6CB4D9;
+  --color-sky-blue-light: #87CEEB;
+  --color-gold-warm: #C8A96E;
+
+  /* Colors - Neutral */
+  --color-light-gray: #F2F2F2;
+  --color-border-gray: #E0E0E0;
+  --color-medium-gray: #999999;
+
+  /* Font families */
+  --font-headline: "Oswald", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+  --font-logo: "Rajdhani", sans-serif;
+}

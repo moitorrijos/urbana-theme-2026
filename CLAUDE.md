@@ -18,28 +18,29 @@ pnpm preview  # Preview production build
 
 - **Astro 5.x** - Static site generator
 - **TypeScript** - Strict tsconfig extends astro/tsconfigs/strict
-- **TailwindCSS** - Styling (to be configured)
-- **Fontsource** - For Google Fonts integration
+- **Tailwind CSS v4** - Via @tailwindcss/vite plugin
+- **Fontsource** - Self-hosted fonts (Oswald, Montserrat, Rajdhani)
 
-## Design Specifications
+## Styling
 
-Color and font specs are defined in `design-specs.json`:
+Global styles and Tailwind theme are in `src/styles/global.css`. Custom theme tokens from design-specs.json are configured as Tailwind theme variables:
 
-**Fonts:**
-- Headlines/nav: Oswald
-- Body/buttons: Montserrat
-- Logo: Rajdhani
+**Fonts** (use with `font-*` utility):
+- `font-headline` - Oswald (headlines, nav, section headers)
+- `font-body` - Montserrat (body text, buttons)
+- `font-logo` - Rajdhani (logo)
 
-**Colors:**
-- Dark tones: #2D2D2D (top bar), #4A4A4A (navbar), #333333 (text)
-- Accents: #6CB4D9 (sky blue), #C8A96E (warm gold)
-- Neutrals: #FFFFFF, #F2F2F2, #E0E0E0
+**Colors** (use with `text-*`, `bg-*`, `border-*` utilities):
+- `top-bar`, `navbar`, `text-primary` - Dark tones
+- `sky-blue`, `sky-blue-light`, `gold-warm` - Accents
+- `light-gray`, `border-gray`, `medium-gray` - Neutrals
 
 ## Project Structure
 
 ```
 src/
   pages/         # Astro page routes
+  styles/        # Global CSS and Tailwind theme
 public/          # Static assets (favicons, images)
-design-specs.json # Design tokens
+design-specs.json # Design tokens reference
 ```
