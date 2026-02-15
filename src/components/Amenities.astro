@@ -137,11 +137,17 @@ const icons: Record<string, string> = {
   leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
 };
 
-const cardsPerPage = 3;
+const cardsPerPage = 2;
 
-function getAmenitiesByCategory(category: string) {
-  return amenities.filter((a) => a.category === category);
-}
+const groupedAmenities = categories.flatMap((category) =>
+  amenities.filter((amenity) => amenity.category === category),
+);
+
+const amenityPages = Array.from(
+  { length: Math.ceil(groupedAmenities.length / cardsPerPage) },
+  (_, i) =>
+    groupedAmenities.slice(i * cardsPerPage, i * cardsPerPage + cardsPerPage),
+);
 ---
 
 <section class="py-20 bg-white">
@@ -197,65 +203,54 @@ function getAmenitiesByCategory(category: string) {
           id="amenities-track"
         >
           {
-            categories.map((category) => {
-              const categoryAmenities = getAmenitiesByCategory(category);
-              const pages = Array.from(
-                { length: Math.ceil(categoryAmenities.length / cardsPerPage) },
-                (_, i) =>
-                  categoryAmenities.slice(
-                    i * cardsPerPage,
-                    i * cardsPerPage + cardsPerPage,
-                  ),
-              );
-              return pages.map((page) => (
-                <div
-                  class="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6"
-                  data-category={category.toLowerCase()}
-                >
-                  {page.map((amenity) => (
-                    <div class="bg-white rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-                      <img
-                        src={amenity.image}
-                        alt={amenity.title}
-                        class="w-full h-50 object-cover"
-                      />
-                      <div class="p-6 flex flex-col gap-3">
-                        <div
+            amenityPages.map((page) => (
+              <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6">
+                {page.map((amenity) => (
+                  <div
+                    class="bg-white rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+                    data-category={amenity.category.toLowerCase()}
+                  >
+                    <img
+                      src={amenity.image}
+                      alt={amenity.title}
+                      class="w-full h-50 object-cover"
+                    />
+                    <div class="p-6 flex flex-col gap-3">
+                      <div
+                        class:list={[
+                          "w-11 h-11 rounded-full flex items-center justify-center",
+                          amenity.iconColor === "sky-blue"
+                            ? "bg-sky-blue/10"
+                            : "bg-gold-warm/10",
+                        ]}
+                      >
+                        <svg
                           class:list={[
-                            "w-11 h-11 rounded-full flex items-center justify-center",
+                            "w-5.5 h-5.5",
                             amenity.iconColor === "sky-blue"
-                              ? "bg-sky-blue/10"
-                              : "bg-gold-warm/10",
+                              ? "text-sky-blue"
+                              : "text-gold-warm",
                           ]}
-                        >
-                          <svg
-                            class:list={[
-                              "w-5.5 h-5.5",
-                              amenity.iconColor === "sky-blue"
-                                ? "text-sky-blue"
-                                : "text-gold-warm",
-                            ]}
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            viewBox="0 0 24 24"
-                            set:html={icons[amenity.icon]}
-                          />
-                        </div>
-                        <h3 class="font-headline text-[22px] font-medium text-text-primary">
-                          {amenity.title}
-                        </h3>
-                        <p class="font-body text-[13px] text-medium-gray leading-relaxed">
-                          {amenity.description}
-                        </p>
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          viewBox="0 0 24 24"
+                          set:html={icons[amenity.icon]}
+                        />
                       </div>
+                      <h3 class="font-headline text-[22px] font-medium text-text-primary">
+                        {amenity.title}
+                      </h3>
+                      <p class="font-body text-[13px] text-medium-gray leading-relaxed">
+                        {amenity.description}
+                      </p>
                     </div>
-                  ))}
-                </div>
-              ));
-            })
+                  </div>
+                ))}
+              </div>
+            ))
           }
         </div>
       </div>
@@ -320,41 +315,53 @@ function getAmenitiesByCategory(category: string) {
   const categoryBtns = document.querySelectorAll(
     "#amenities-categories button",
   );
-  const allPages = track?.querySelectorAll(
-    ":scope > div",
-  ) as NodeListOf<HTMLElement>;
+  const allPages = Array.from(
+    track?.querySelectorAll(":scope > div") || [],
+  ) as HTMLElement[];
 
-  let currentCategory = "recreation";
+  let activeCategory = "recreation";
   let currentPage = 0;
   let touchStartX = 0;
   const swipeThreshold = 50;
+  const totalPages = allPages.length;
 
-  function getPagesByCategory(category: string): HTMLElement[] {
-    return Array.from(allPages || []).filter(
-      (page) => page.dataset.category === category,
+  function getPageCategories(page: HTMLElement): string[] {
+    const cards = Array.from(page.querySelectorAll("[data-category]"));
+    return cards
+      .map((card) => card.getAttribute("data-category") || "")
+      .filter((category) => category.length > 0);
+  }
+
+  function getFirstPageForCategory(category: string): number {
+    return allPages.findIndex((page) =>
+      getPageCategories(page).includes(category),
     );
   }
 
-  function getTotalPagesForCategory(category: string): number {
-    return getPagesByCategory(category).length;
-  }
-
-  function getPageIndex(category: string, pageNum: number): number {
-    if (!allPages) return 0;
-    let index = 0;
-    for (const page of allPages) {
-      if (page.dataset.category === category) {
-        if (pageNum === 0) return index;
-        pageNum--;
+  function setActiveCategory(category: string) {
+    activeCategory = category;
+    categoryBtns.forEach((btn) => {
+      const btnCategory = (btn as HTMLElement).dataset.category;
+      if (btnCategory === category) {
+        btn.classList.remove(
+          "bg-light-gray",
+          "text-text-primary",
+          "hover:bg-border-gray",
+        );
+        btn.classList.add("bg-sky-blue", "text-white");
+      } else {
+        btn.classList.remove("bg-sky-blue", "text-white");
+        btn.classList.add(
+          "bg-light-gray",
+          "text-text-primary",
+          "hover:bg-border-gray",
+        );
       }
-      index++;
-    }
-    return 0;
+    });
   }
 
   function updateDots() {
     if (!dotsContainer) return;
-    const totalPages = getTotalPagesForCategory(currentCategory);
     dotsContainer.innerHTML = "";
 
     for (let i = 0; i < totalPages; i++) {
@@ -375,8 +382,14 @@ function getAmenitiesByCategory(category: string) {
 
   function updateCarousel() {
     if (!track) return;
-    const pageIndex = getPageIndex(currentCategory, currentPage);
-    track.style.transform = `translateX(-${pageIndex * 100}%)`;
+    track.style.transform = `translateX(-${currentPage * 100}%)`;
+
+    const page = allPages[currentPage];
+    const firstCategory = getPageCategories(page)[0];
+    if (firstCategory && firstCategory !== activeCategory) {
+      setActiveCategory(firstCategory);
+    }
+
     updateDots();
   }
 
@@ -394,29 +407,12 @@ function getAmenitiesByCategory(category: string) {
     window.setTimeout(() => viewport.classList.remove(bounceClass), 350);
   }
 
-  function switchCategory(category: string) {
-    currentCategory = category;
-    currentPage = 0;
+  function jumpToCategory(category: string) {
+    const firstPageIndex = getFirstPageForCategory(category);
+    if (firstPageIndex < 0) return;
 
-    categoryBtns.forEach((btn) => {
-      const btnCategory = (btn as HTMLElement).dataset.category;
-      if (btnCategory === category) {
-        btn.classList.remove(
-          "bg-light-gray",
-          "text-text-primary",
-          "hover:bg-border-gray",
-        );
-        btn.classList.add("bg-sky-blue", "text-white");
-      } else {
-        btn.classList.remove("bg-sky-blue", "text-white");
-        btn.classList.add(
-          "bg-light-gray",
-          "text-text-primary",
-          "hover:bg-border-gray",
-        );
-      }
-    });
-
+    currentPage = firstPageIndex;
+    setActiveCategory(category);
     updateCarousel();
   }
 
@@ -431,7 +427,6 @@ function getAmenitiesByCategory(category: string) {
   });
 
   nextBtn?.addEventListener("click", () => {
-    const totalPages = getTotalPagesForCategory(currentCategory);
     if (currentPage === totalPages - 1) {
       triggerBounce("right");
       return;
@@ -444,7 +439,7 @@ function getAmenitiesByCategory(category: string) {
   categoryBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const category = (btn as HTMLElement).dataset.category;
-      if (category) switchCategory(category);
+      if (category) jumpToCategory(category);
     });
   });
 
@@ -461,7 +456,6 @@ function getAmenitiesByCategory(category: string) {
     (event) => {
       const touchEndX = event.changedTouches[0]?.clientX || 0;
       const deltaX = touchStartX - touchEndX;
-      const totalPages = getTotalPagesForCategory(currentCategory);
 
       if (Math.abs(deltaX) < swipeThreshold) return;
 
@@ -483,7 +477,8 @@ function getAmenitiesByCategory(category: string) {
   );
 
   // Initialize
-  updateDots();
+  setActiveCategory(activeCategory);
+  updateCarousel();
 </script>
 
 <style is:global>
