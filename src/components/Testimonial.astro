@@ -92,11 +92,11 @@ const testimonialPages = Array.from(
 
       <!-- Cards Container -->
       <div class="overflow-hidden w-full max-w-250" id="testimonial-viewport" style="touch-action: pan-y;">
-        <div class="flex transition-transform duration-500 ease-out gap-8 px-6 py-4" id="testimonial-track">
+        <div class="flex transition-transform duration-500 ease-out gap-2 lg:gap-6 px-2 lg:px-6 py-4" id="testimonial-track">
           {testimonialPages.map((page) => (
-            <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-2 lg:gap-6">
               {page.map((testimonial) => (
-                <div class="bg-white rounded-lg p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] flex flex-col items-center gap-5 h-full">
+                <div class="bg-white rounded-lg p-4 lg:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] flex flex-col items-center gap-5 h-full">
                   <!-- Quote Icon -->
                   <svg class="w-8 h-8 text-gold-warm" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
