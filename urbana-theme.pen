@@ -1,0 +1,1885 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "Vnxd7",
+      "x": 850,
+      "y": 0,
+      "name": "Desktop Footer",
+      "width": 1060,
+      "fill": "#2D2D2D",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "B7Fh6",
+          "name": "Footer Main",
+          "width": "fill_container",
+          "gap": 60,
+          "padding": [
+            60,
+            80
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "SBgPr",
+              "name": "Brand Column",
+              "width": 280,
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JP2X0",
+                  "name": "logoFrame",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pedZU",
+                      "name": "logoText",
+                      "fill": "#FFFFFF",
+                      "content": "URBANA",
+                      "fontFamily": "Rajdhani",
+                      "fontSize": 24,
+                      "fontWeight": "600",
+                      "letterSpacing": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "qlq9V",
+                  "name": "tagline",
+                  "fill": "#999999",
+                  "content": "CITY HOTEL",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "dqBpT",
+                  "name": "brandDesc",
+                  "fill": "#999999",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "Experience luxury in the heart of New York. Your place to stay in the big city.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Montserrat",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "QdeCu",
+                  "name": "socialRow",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "IJXky",
+                      "name": "fbIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "facebook",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "bECJZ",
+                      "name": "igIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "xnMWN",
+                      "name": "twIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "twitter",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nVjBX",
+              "name": "Links Area",
+              "gap": 80,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "p1KY2",
+                  "name": "Quick Links",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lnvq8",
+                      "name": "qlTitle",
+                      "fill": "#FFFFFF",
+                      "content": "QUICK LINKS",
+                      "fontFamily": "Oswald",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "l8cqY",
+                      "name": "qlHome",
+                      "fill": "#999999",
+                      "content": "Home",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DAOjm",
+                      "name": "qlRooms",
+                      "fill": "#999999",
+                      "content": "Rooms",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "7FPPl",
+                      "name": "qlAmenities",
+                      "fill": "#999999",
+                      "content": "Amenities",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LVJXe",
+                      "name": "qlEvents",
+                      "fill": "#999999",
+                      "content": "Events",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FNbws",
+                      "name": "qlContact",
+                      "fill": "#999999",
+                      "content": "Contact",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b13s7",
+                  "name": "Our Rooms",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6bvZ5",
+                      "name": "rmTitle",
+                      "fill": "#FFFFFF",
+                      "content": "OUR ROOMS",
+                      "fontFamily": "Oswald",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "SImVI",
+                      "name": "rmSuites",
+                      "fill": "#999999",
+                      "content": "Suites",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QGui0",
+                      "name": "rmFamily",
+                      "fill": "#999999",
+                      "content": "Family",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "1O4ZQ",
+                      "name": "rmDouble",
+                      "fill": "#999999",
+                      "content": "Double",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "J8kN1",
+                      "name": "rmStudio",
+                      "fill": "#999999",
+                      "content": "Studio",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FQOnJ",
+                      "name": "rmPresidential",
+                      "fill": "#999999",
+                      "content": "Presidential",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "U55M7",
+                  "name": "Contact Us",
+                  "width": 200,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DrR14",
+                      "name": "ctTitle",
+                      "fill": "#FFFFFF",
+                      "content": "CONTACT US",
+                      "fontFamily": "Oswald",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5o8MC",
+                      "name": "ctAddrRow",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "tY4W6",
+                          "name": "ctAddrIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#6CB4D9"
+                        },
+                        {
+                          "type": "text",
+                          "id": "c5M2L",
+                          "name": "ctAddrText",
+                          "fill": "#999999",
+                          "content": "SOHO 555, Broadway\nNew York, NY",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Montserrat",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2rKxt",
+                      "name": "ctPhoneRow",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "KP926",
+                          "name": "ctPhoneIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "phone",
+                          "iconFontFamily": "lucide",
+                          "fill": "#6CB4D9"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4HlMf",
+                          "name": "ctPhoneText",
+                          "fill": "#999999",
+                          "content": "+212-220-4519",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a0y7H",
+                      "name": "ctEmailRow",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "luEDG",
+                          "name": "ctEmailIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "#6CB4D9"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iilTB",
+                          "name": "ctEmailText",
+                          "fill": "#999999",
+                          "content": "info@urbana.com",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uJQ23",
+          "name": "Bottom Bar",
+          "width": "fill_container",
+          "fill": "#4A4A4A",
+          "padding": [
+            20,
+            80
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "7kCJ8",
+              "name": "copyright",
+              "fill": "#999999",
+              "content": "© 2026 Urbana City Hotel. All rights reserved.",
+              "fontFamily": "Montserrat",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "A31AT",
+              "name": "legalLinks",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "65v1h",
+                  "name": "privacyLink",
+                  "fill": "#999999",
+                  "content": "Privacy Policy",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "alv4G",
+                  "name": "termsLink",
+                  "fill": "#999999",
+                  "content": "Terms of Service",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "bIAa8",
+                  "name": "cookieLink",
+                  "fill": "#999999",
+                  "content": "Cookie Policy",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "b7pN4",
+      "x": 0,
+      "y": 650,
+      "name": "Mobile Version",
+      "clip": true,
+      "width": 375,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "lF5oD",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "fill": "#2D2D2D",
+          "padding": [
+            10,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "WfZz8",
+              "name": "locationRow",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "0pPLN",
+                  "name": "locIcon",
+                  "width": 12,
+                  "height": 12,
+                  "iconFontName": "map-pin",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "XO1Ac",
+                  "name": "locText",
+                  "fill": "#FFFFFF",
+                  "content": "SOHO, New York",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dvxs8",
+              "name": "phoneRow",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "ISl5B",
+                  "name": "phoneIcon",
+                  "width": 12,
+                  "height": 12,
+                  "iconFontName": "phone",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "P7byl",
+                  "name": "phoneText",
+                  "fill": "#FFFFFF",
+                  "content": "+212-220-4519",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tef9t",
+          "name": "Navbar",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "padding": [
+            16,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "nqRj5",
+              "name": "logo",
+              "fill": "#333333",
+              "content": "URBANA",
+              "fontFamily": "Rajdhani",
+              "fontSize": 18,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "icon_font",
+              "id": "UXoIP",
+              "name": "menuIcon",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "lucide",
+              "fill": "#333333"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zR2KJ",
+          "name": "Hero Section",
+          "metadata": {
+            "type": "unsplash",
+            "username": "apq",
+            "link": "https://unsplash.com/@apq",
+            "author": "Anton Palmqvist"
+          },
+          "width": "fill_container",
+          "height": 480,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1600107610741-dc93c4adb871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzExODE5ODF8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "fill"
+          },
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            40,
+            24
+          ],
+          "justifyContent": "end",
+          "children": [
+            {
+              "type": "text",
+              "id": "3ndNF",
+              "name": "heroHeadline",
+              "fill": "#FFFFFF",
+              "content": "YOUR PLACE\nTO STAY IN\nTHE BIG CITY",
+              "lineHeight": 1.1,
+              "fontFamily": "Oswald",
+              "fontSize": 32,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "JnZMM",
+              "name": "heroPrice",
+              "fill": "#6CB4D9",
+              "content": "Starting at $149/night",
+              "fontFamily": "Montserrat",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "UHT6r",
+              "name": "Book Button",
+              "fill": "#FFFFFF",
+              "padding": [
+                14,
+                32
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Kq0jT",
+                  "name": "heroBtnText",
+                  "fill": "#333333",
+                  "content": "BOOK NOW",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0gxZM",
+          "name": "Booking Form",
+          "width": "fill_container",
+          "fill": "#F2F2F2",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            24,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "B199q",
+              "name": "dateRow",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PqrDe",
+                  "name": "checkInField",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oDS6Z",
+                      "name": "checkInText",
+                      "fill": "#999999",
+                      "content": "CHECK IN",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "NOeSX",
+                      "name": "checkInIcon",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "calendar",
+                      "iconFontFamily": "lucide",
+                      "fill": "#999999"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "is5lo",
+                  "name": "checkOutField",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zy0d9",
+                      "name": "checkOutText",
+                      "fill": "#999999",
+                      "content": "CHECK OUT",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "lcXvG",
+                      "name": "checkOutIcon",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "calendar",
+                      "iconFontFamily": "lucide",
+                      "fill": "#999999"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kom9q",
+              "name": "guestRow",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "alGQv",
+                  "name": "adultsField",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8BPxN",
+                      "name": "adultsText",
+                      "fill": "#999999",
+                      "content": "ADULTS",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "z30Ur",
+                      "name": "adultsIcon",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "chevron-down",
+                      "iconFontFamily": "lucide",
+                      "fill": "#999999"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "of4lg",
+                  "name": "childrenField",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sCkED",
+                      "name": "childrenText",
+                      "fill": "#999999",
+                      "content": "CHILDREN",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "DA1Yj",
+                      "name": "childrenIcon",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "chevron-down",
+                      "iconFontFamily": "lucide",
+                      "fill": "#999999"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ip514",
+              "name": "Search Button",
+              "width": "fill_container",
+              "fill": "#4A4A4A",
+              "padding": [
+                16,
+                24
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HpKDi",
+                  "name": "searchBtnText",
+                  "fill": "#FFFFFF",
+                  "content": "CHECK AVAILABILITY",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xvjq7",
+          "name": "Rooms Section",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            40,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "j6LS3",
+              "name": "roomsHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mBgQ8",
+                  "name": "roomsTitle",
+                  "fill": "#333333",
+                  "content": "AVAILABLE ROOMS",
+                  "fontFamily": "Oswald",
+                  "fontSize": 22,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "frame",
+                  "id": "pMHA4",
+                  "name": "roomsTabs",
+                  "width": "fill_container",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "4npCb",
+                      "name": "tabSuites",
+                      "width": "fill_container",
+                      "fill": "#4A4A4A",
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "y8c5B",
+                          "name": "tabSuitesText",
+                          "fill": "#FFFFFF",
+                          "content": "SUITES",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "erAty",
+                      "name": "tabFamily",
+                      "width": "fill_container",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E0E0E0"
+                      },
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JhCiw",
+                          "name": "tabFamilyText",
+                          "fill": "#999999",
+                          "content": "FAMILY",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BVuN6",
+                      "name": "tabDouble",
+                      "width": "fill_container",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E0E0E0"
+                      },
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "F6AFn",
+                          "name": "tabDoubleText",
+                          "fill": "#999999",
+                          "content": "DOUBLE",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PVVkq",
+              "name": "Room Cards",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "2AYKn",
+                  "name": "Presidential Suite Card",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Le7PO",
+                      "name": "Room Image 1",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "nicolebomar",
+                        "link": "https://unsplash.com/@nicolebomar",
+                        "author": "Nicole Bomar"
+                      },
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1714175247782-64c19c77c705?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzExODIwMTF8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Kflmp",
+                      "name": "roomInfo1",
+                      "width": "fill_container",
+                      "fill": "#F2F2F2",
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PC4Uf",
+                          "name": "roomName1",
+                          "fill": "#333333",
+                          "content": "PRESIDENTIAL SUITE",
+                          "fontFamily": "Oswald",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "0hE6j",
+                          "name": "roomArrow1",
+                          "width": 32,
+                          "height": 32,
+                          "fill": "#4A4A4A",
+                          "cornerRadius": 16,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "NfHn9",
+                              "name": "roomArrowIcon1",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "arrow-right",
+                              "iconFontFamily": "lucide",
+                              "fill": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ws5DZ",
+                  "name": "Studio Card",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Q8F3a",
+                      "name": "Room Image 2",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "o_studio_lego",
+                        "link": "https://unsplash.com/@o_studio_lego",
+                        "author": "Studio Lego"
+                      },
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1758336716950-370f54b7a43f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzExODIwMTh8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UYwF0",
+                      "name": "roomInfo2",
+                      "width": "fill_container",
+                      "fill": "#F2F2F2",
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LlXMc",
+                          "name": "roomName2",
+                          "fill": "#333333",
+                          "content": "STUDIO",
+                          "fontFamily": "Oswald",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "0kJVE",
+                          "name": "roomArrow2",
+                          "width": 32,
+                          "height": 32,
+                          "fill": "#4A4A4A",
+                          "cornerRadius": 16,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "PwSSl",
+                              "name": "roomArrowIcon2",
+                              "width": 16,
+                              "height": 16,
+                              "iconFontName": "arrow-right",
+                              "iconFontFamily": "lucide",
+                              "fill": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "2As23",
+          "name": "Mobile Footer",
+          "width": "fill_container",
+          "fill": "#2D2D2D",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Dm9NA",
+              "name": "footerMain",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                40,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YzrMP",
+                  "name": "footerLogo",
+                  "fill": "#FFFFFF",
+                  "content": "URBANA",
+                  "fontFamily": "Rajdhani",
+                  "fontSize": 20,
+                  "fontWeight": "600",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "jG7p5",
+                  "name": "footerTagline",
+                  "fill": "#999999",
+                  "content": "CITY HOTEL",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 10,
+                  "fontWeight": "normal",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "frame",
+                  "id": "JHL0x",
+                  "name": "footerLinks",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "S8aVL",
+                      "name": "fLink1",
+                      "fill": "#999999",
+                      "content": "Home",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RqxbE",
+                      "name": "fLink2",
+                      "fill": "#999999",
+                      "content": "Rooms",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lMfFG",
+                      "name": "fLink3",
+                      "fill": "#999999",
+                      "content": "Amenities",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ajx1q",
+                      "name": "fLink4",
+                      "fill": "#999999",
+                      "content": "Contact",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vSICk",
+                  "name": "socialIcons",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "r79WJ",
+                      "name": "socialFb",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "facebook",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "TLj8X",
+                      "name": "socialIg",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "SFFZF",
+                      "name": "socialTw",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "twitter",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dzZAa",
+              "name": "footerBottom",
+              "width": "fill_container",
+              "fill": "#4A4A4A",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                20,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GvGdi",
+                  "name": "copyrightMobile",
+                  "fill": "#999999",
+                  "content": "© 2026 Urbana City Hotel",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "X7hgX",
+                  "name": "legalMobile",
+                  "fill": "#999999",
+                  "content": "Privacy · Terms · Cookies",
+                  "fontFamily": "Montserrat",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "oD0gA",
+      "x": 2010,
+      "y": 0,
+      "name": "Testimonial Section",
+      "width": 1200,
+      "fill": "#F2F2F2",
+      "layout": "vertical",
+      "gap": 48,
+      "padding": [
+        80,
+        60
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "nIxSm",
+          "name": "Header Area",
+          "layout": "vertical",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "PwAUy",
+              "name": "subheading",
+              "fill": "#C8A96E",
+              "content": "GUEST EXPERIENCES",
+              "fontFamily": "Montserrat",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "PiEww",
+              "name": "heading",
+              "fill": "#333333",
+              "content": "What Our Guests Say",
+              "fontFamily": "Oswald",
+              "fontSize": 42,
+              "fontWeight": "500"
+            },
+            {
+              "type": "rectangle",
+              "id": "zysVT",
+              "name": "divider",
+              "fill": "#6CB4D9",
+              "width": 60,
+              "height": 3
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VfZHB",
+          "name": "Carousel Area",
+          "width": "fill_container",
+          "gap": 32,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bHZJG",
+              "name": "Left Arrow",
+              "width": 48,
+              "height": 48,
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E0E0E0"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "f5IUI",
+                  "name": "leftIcon",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "chevron-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "#333333"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SHpUU",
+              "name": "Cards Container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "sBSAN",
+                  "name": "Testimonial Card 1",
+                  "width": 300,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "FOwD1",
+                      "name": "quoteIcon1",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "quote",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C8A96E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "1nUCt",
+                      "name": "quoteText1",
+                      "fill": "#333333",
+                      "textGrowth": "fixed-width",
+                      "width": 236,
+                      "content": "\"The rooftop bar offers breathtaking views of the city skyline. Perfect for unwinding after exploring the city. Staff was incredibly attentive.\"",
+                      "lineHeight": 1.7,
+                      "textAlign": "center",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l9buH",
+                      "name": "Stars",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "BZo2R",
+                          "name": "star1a",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "owVVr",
+                          "name": "star1b",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "DErFQ",
+                          "name": "star1c",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "2K5Z9",
+                          "name": "star1d",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "a7QXH",
+                          "name": "star1e",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DfzB6",
+                      "name": "Author",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gvZxz",
+                          "name": "authorName1",
+                          "fill": "#333333",
+                          "content": "Sarah Mitchell",
+                          "fontFamily": "Oswald",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "8XNBY",
+                          "name": "authorLocation1",
+                          "fill": "#999999",
+                          "content": "New York, USA",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kMfZP",
+                  "name": "Testimonial Card 2",
+                  "width": 300,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "FIFdC",
+                      "name": "quoteIcon2",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "quote",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C8A96E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vpgou",
+                      "name": "quoteText2",
+                      "fill": "#333333",
+                      "textGrowth": "fixed-width",
+                      "width": 236,
+                      "content": "\"Exceptional service from check-in to checkout. The spa treatments were divine and the concierge helped us discover hidden gems in the city.\"",
+                      "lineHeight": 1.7,
+                      "textAlign": "center",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pucxX",
+                      "name": "Stars",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "1MX1Z",
+                          "name": "star2a",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "T00Vq",
+                          "name": "star2b",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "czTRt",
+                          "name": "star2c",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "kgWad",
+                          "name": "star2d",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "Q6KMv",
+                          "name": "star2e",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YyO38",
+                      "name": "Author",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dvabp",
+                          "name": "authorName2",
+                          "fill": "#333333",
+                          "content": "James Chen",
+                          "fontFamily": "Oswald",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "tipJI",
+                          "name": "authorLocation2",
+                          "fill": "#999999",
+                          "content": "London, UK",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EmLKi",
+                  "name": "Testimonial Card 3",
+                  "width": 300,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 20
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "yv12M",
+                      "name": "quoteIcon3",
+                      "width": 32,
+                      "height": 32,
+                      "iconFontName": "quote",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C8A96E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IKYiu",
+                      "name": "quoteText3",
+                      "fill": "#333333",
+                      "textGrowth": "fixed-width",
+                      "width": 236,
+                      "content": "\"A truly luxurious experience. The room was immaculate with stunning city views. Will definitely return on our next business trip.\"",
+                      "lineHeight": 1.7,
+                      "textAlign": "center",
+                      "fontFamily": "Montserrat",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "W5vX8",
+                      "name": "Stars",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "4LNj8",
+                          "name": "star3a",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "CPEik",
+                          "name": "star3b",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "ik0Gv",
+                          "name": "star3c",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "WmZ05",
+                          "name": "star3d",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "bmcHW",
+                          "name": "star3e",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "star",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C8A96E"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "asfqk",
+                      "name": "Author",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "S8Of3",
+                          "name": "authorName3",
+                          "fill": "#333333",
+                          "content": "Maria Santos",
+                          "fontFamily": "Oswald",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "5niLa",
+                          "name": "authorLocation3",
+                          "fill": "#999999",
+                          "content": "São Paulo, Brazil",
+                          "fontFamily": "Montserrat",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TRlvm",
+              "name": "Right Arrow",
+              "width": 48,
+              "height": 48,
+              "fill": "#6CB4D9",
+              "cornerRadius": 24,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "hIRlR",
+                  "name": "rightIcon",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "chevron-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yWqSX",
+          "name": "Pagination Dots",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "jiVBf",
+              "name": "dot1",
+              "fill": "#6CB4D9",
+              "width": 12,
+              "height": 12
+            },
+            {
+              "type": "ellipse",
+              "id": "sqNgr",
+              "name": "dot2",
+              "fill": "#E0E0E0",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "ellipse",
+              "id": "gydu3",
+              "name": "dot3",
+              "fill": "#E0E0E0",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "ellipse",
+              "id": "N6gXy",
+              "name": "dot4",
+              "fill": "#E0E0E0",
+              "width": 8,
+              "height": 8
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
