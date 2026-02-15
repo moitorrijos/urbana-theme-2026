@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  currentPage?: string;
+}
+
+const {
+  title,
+  description = 'Urbana Hotel - Your Place to Stay in the Big City',
+  currentPage = 'home',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Urbana Hotel</title>
+  </head>
+  <body class="font-body text-text-primary bg-light-gray min-h-screen">
+    <Navigation currentPage={currentPage} />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

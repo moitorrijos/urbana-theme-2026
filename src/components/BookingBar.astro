@@ -1,0 +1,80 @@
+---
+
+---
+
+<section class="bg-white shadow-lg">
+  <form class="container mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+      <!-- Check In -->
+      <div class="flex flex-col">
+        <label for="check-in" class="font-body text-xs font-semibold text-medium-gray uppercase mb-2">
+          Check In
+        </label>
+        <input
+          type="date"
+          id="check-in"
+          name="check-in"
+          class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue"
+        />
+      </div>
+
+      <!-- Check Out -->
+      <div class="flex flex-col">
+        <label for="check-out" class="font-body text-xs font-semibold text-medium-gray uppercase mb-2">
+          Check Out
+        </label>
+        <input
+          type="date"
+          id="check-out"
+          name="check-out"
+          class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue"
+        />
+      </div>
+
+      <!-- Guests -->
+      <div class="flex flex-col">
+        <label for="guests" class="font-body text-xs font-semibold text-medium-gray uppercase mb-2">
+          Guests
+        </label>
+        <select
+          id="guests"
+          name="guests"
+          class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue bg-white"
+        >
+          <option value="1">1 Guest</option>
+          <option value="2" selected>2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5">5+ Guests</option>
+        </select>
+      </div>
+
+      <!-- Rooms -->
+      <div class="flex flex-col">
+        <label for="rooms" class="font-body text-xs font-semibold text-medium-gray uppercase mb-2">
+          Rooms
+        </label>
+        <select
+          id="rooms"
+          name="rooms"
+          class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue bg-white"
+        >
+          <option value="1" selected>1 Room</option>
+          <option value="2">2 Rooms</option>
+          <option value="3">3 Rooms</option>
+          <option value="4">4+ Rooms</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button
+          type="submit"
+          class="w-full bg-gold-warm hover:bg-amber-600 text-white font-body font-semibold text-sm px-8 py-3 transition-colors uppercase"
+        >
+          Book Now
+        </button>
+      </div>
+    </div>
+  </form>
+</section>

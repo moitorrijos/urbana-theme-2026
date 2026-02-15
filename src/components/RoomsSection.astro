@@ -1,0 +1,111 @@
+---
+import RoomCard from './RoomCard.astro';
+
+const categories = ['ALL', 'PREMIUM', 'PRESIDENTIAL', 'CLASSIC'];
+
+const rooms = [
+  {
+    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400&h=300&fit=crop',
+    title: 'Premium Suite',
+    category: 'Premium',
+    price: 245,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop',
+    title: 'Presidential Suite',
+    category: 'Presidential',
+    price: 445,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&h=300&fit=crop',
+    title: 'Classic Room',
+    category: 'Classic',
+    price: 145,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400&h=300&fit=crop',
+    title: 'Premium Deluxe',
+    category: 'Premium',
+    price: 295,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop',
+    title: 'Classic Double',
+    category: 'Classic',
+    price: 165,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&h=300&fit=crop',
+    title: 'Presidential Penthouse',
+    category: 'Presidential',
+    price: 695,
+  },
+];
+---
+
+<section class="py-16 bg-light-gray">
+  <div class="container mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="font-headline text-3xl md:text-4xl text-text-primary mb-8">
+        AVAILABLE ROOMS
+      </h2>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-2" id="room-filters">
+        {categories.map((category, index) => (
+          <button
+            type="button"
+            class:list={[
+              'font-body text-sm font-semibold px-6 py-2 transition-colors',
+              index === 0
+                ? 'bg-sky-blue text-white'
+                : 'bg-white text-text-primary hover:bg-sky-blue hover:text-white',
+            ]}
+            data-filter={category.toLowerCase()}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Room Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="rooms-grid">
+      {rooms.map((room) => (
+        <div data-category={room.category.toLowerCase()}>
+          <RoomCard {...room} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const filterButtons = document.querySelectorAll('#room-filters button');
+  const roomCards = document.querySelectorAll('#rooms-grid > div');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+
+      // Update active button styles
+      filterButtons.forEach((btn) => {
+        btn.classList.remove('bg-sky-blue', 'text-white');
+        btn.classList.add('bg-white', 'text-text-primary');
+      });
+      button.classList.remove('bg-white', 'text-text-primary');
+      button.classList.add('bg-sky-blue', 'text-white');
+
+      // Filter cards
+      roomCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -39,8 +39,18 @@ Global styles and Tailwind theme are in `src/styles/global.css`. Custom theme to
 
 ```
 src/
+  components/    # Reusable Astro components
+  layouts/       # Page layouts (BaseLayout)
   pages/         # Astro page routes
   styles/        # Global CSS and Tailwind theme
 public/          # Static assets (favicons, images)
 design-specs.json # Design tokens reference
 ```
+
+## Components
+
+- **Navigation** - Header with top bar, logo, nav links, mobile menu
+- **Hero** - Full-width hero section with background image and CTA
+- **BookingBar** - Date/guest/room selection form (UI only, no backend yet)
+- **RoomCard** - Individual room display card
+- **RoomsSection** - Filterable grid of room cards
