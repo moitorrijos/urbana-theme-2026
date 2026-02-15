@@ -3,13 +3,13 @@ interface Props {
   currentPage?: string;
 }
 
-const { currentPage = 'home' } = Astro.props;
+const { currentPage = "home" } = Astro.props;
 
 const navLinks = [
-  { href: '/', label: 'HOME', id: 'home' },
-  { href: '/rooms', label: 'ROOMS', id: 'rooms' },
-  { href: '/amenities', label: 'AMENITIES', id: 'amenities' },
-  { href: '/contact', label: 'CONTACT', id: 'contact' },
+  { href: "/", label: "HOME", id: "home" },
+  { href: "/rooms", label: "ROOMS", id: "rooms" },
+  { href: "/amenities", label: "AMENITIES", id: "amenities" },
+  { href: "/contact", label: "CONTACT", id: "contact" },
 ];
 ---
 
@@ -17,8 +17,14 @@ const navLinks = [
   <!-- Top Bar -->
   <div class="bg-top-bar text-white text-sm py-2">
     <div class="container mx-auto px-4 flex justify-end gap-6">
-      <a href="tel:+1234567890" class="hover:text-sky-blue-light transition-colors">+1 (234) 567-890</a>
-      <a href="mailto:info@urbana.com" class="hover:text-sky-blue-light transition-colors">info@urbana.com</a>
+      <a
+        href="tel:+1234567890"
+        class="hover:text-sky-blue-light transition-colors">+1 (234) 567-890</a
+      >
+      <a
+        href="mailto:info@urbana.com"
+        class="hover:text-sky-blue-light transition-colors">info@urbana.com</a
+      >
     </div>
   </div>
 
@@ -26,27 +32,29 @@ const navLinks = [
   <nav class="bg-navbar py-4">
     <div class="container mx-auto px-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="font-logo text-3xl font-semibold text-white tracking-wider">
-        URBANA
+      <a href="/">
+        <img src="/urbana-white-logo.svg" alt="Urbana Hotel" class="h-6" />
       </a>
 
       <!-- Nav Links -->
       <ul class="hidden md:flex items-center gap-8">
-        {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={[
-                'font-headline text-sm tracking-wide transition-colors',
-                currentPage === link.id
-                  ? 'text-sky-blue'
-                  : 'text-white hover:text-sky-blue-light',
-              ]}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  "font-headline text-sm tracking-wide transition-colors",
+                  currentPage === link.id
+                    ? "text-sky-blue"
+                    : "text-white hover:text-sky-blue-light",
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
 
       <!-- Book Now Button -->
@@ -63,8 +71,17 @@ const navLinks = [
         aria-label="Toggle menu"
         id="mobile-menu-toggle"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
@@ -72,31 +89,33 @@ const navLinks = [
     <!-- Mobile Menu -->
     <div class="md:hidden hidden" id="mobile-menu">
       <ul class="container mx-auto px-4 py-4 flex flex-col gap-4">
-        {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={[
-                'font-headline text-sm tracking-wide transition-colors block',
-                currentPage === link.id
-                  ? 'text-sky-blue'
-                  : 'text-white hover:text-sky-blue-light',
-              ]}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  "font-headline text-sm tracking-wide transition-colors block",
+                  currentPage === link.id
+                    ? "text-sky-blue"
+                    : "text-white hover:text-sky-blue-light",
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </nav>
 </header>
 
 <script>
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('mobile-menu');
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
 
-  toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+  toggle?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
   });
 </script>
