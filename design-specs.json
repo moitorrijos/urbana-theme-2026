@@ -1,0 +1,37 @@
+{
+  "colors": {
+    "dark": {
+      "top_bar": "#2D2D2D",
+      "navbar": "#4A4A4A",
+      "text_primary": "#333333"
+    },
+    "accent": {
+      "sky_blue": "#6CB4D9",
+      "sky_blue_light": "#87CEEB",
+      "gold_warm": "#C8A96E"
+    },
+    "neutral": {
+      "white": "#FFFFFF",
+      "light_gray": "#F2F2F2",
+      "border_gray": "#E0E0E0",
+      "medium_gray": "#999999"
+    }
+  },
+  "fonts": {
+    "headline": {
+      "family": "Oswald",
+      "usage": "Headlines, navigation items, section headers",
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap"
+    },
+    "body": {
+      "family": "Montserrat",
+      "usage": "Subheadings, button text, booking bar labels",
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    },
+    "logo": {
+      "family": "Rajdhani",
+      "usage": "Logo typeface (URBANA)",
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap"
+    }
+  }
+}
