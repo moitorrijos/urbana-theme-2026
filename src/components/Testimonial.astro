@@ -92,7 +92,7 @@ const testimonialPages = Array.from(
 
       <!-- Cards Container -->
       <div class="overflow-hidden w-full max-w-250" id="testimonial-viewport" style="touch-action: pan-y;">
-        <div class="flex transition-transform duration-500 ease-out" id="testimonial-track">
+        <div class="flex transition-transform duration-500 ease-out gap-8 px-6 py-4" id="testimonial-track">
           {testimonialPages.map((page) => (
             <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6">
               {page.map((testimonial) => (
@@ -168,6 +168,7 @@ const testimonialPages = Array.from(
   const prevBtn = document.getElementById('testimonial-prev');
   const nextBtn = document.getElementById('testimonial-next');
   const dots = document.querySelectorAll('#testimonial-dots button');
+  const pages = track?.querySelectorAll(':scope > div') as NodeListOf<HTMLElement>;
 
   let currentPage = 0;
   const totalPages = dots.length;
@@ -187,8 +188,9 @@ const testimonialPages = Array.from(
   }
 
   function updateCarousel() {
-    if (!track) return;
-    track.style.transform = `translateX(-${currentPage * 100}%)`;
+    if (!track || !pages?.length) return;
+    const pageOffset = pages[currentPage]?.offsetLeft || 0;
+    track.style.transform = `translateX(-${pageOffset}px)`;
     updateDots();
   }
 
@@ -261,6 +263,8 @@ const testimonialPages = Array.from(
     },
     { passive: true }
   );
+
+  window.addEventListener('resize', updateCarousel);
 </script>
 
 <style is:global>
