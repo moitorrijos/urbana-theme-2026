@@ -1,43 +1,13 @@
-# Astro Starter Kit: Minimal
+## Astro Urbana Theme
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+![Astro Urbana Theme](/public/landing.png)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is a mock website for a petit hotel style in urban areas. The website includes a landing page with a hero image, a slogan and a call to action button that leads users to book a hotel. This button leads to a form in another page that will start the booking system that will be connected to a backend system that will handle emails and database entries, as well as other security stuff. Additionally, includes a form that will start the booking process and cards in a grid that represent different types of rooms available.
 
-## 🚀 Project Structure
+This theme is built using the following technologies:
+- Astro
+- Typescript
+- TailwindCSS
+- Fontsource for font google fonts
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Find color and font information in design-specs.json.
