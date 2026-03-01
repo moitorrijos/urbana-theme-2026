@@ -137,16 +137,9 @@ const icons: Record<string, string> = {
   leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
 };
 
-const cardsPerPage = 2;
-
+// Sorted flat array: Recreation(0-2), Dining(3-5), Business(6-8), Wellness(9-11)
 const groupedAmenities = categories.flatMap((category) =>
   amenities.filter((amenity) => amenity.category === category),
-);
-
-const amenityPages = Array.from(
-  { length: Math.ceil(groupedAmenities.length / cardsPerPage) },
-  (_, i) =>
-    groupedAmenities.slice(i * cardsPerPage, i * cardsPerPage + cardsPerPage),
 );
 ---
 
@@ -174,7 +167,7 @@ const amenityPages = Array.from(
       <!-- Left Arrow -->
       <button
         type="button"
-        class="hidden md:flex items-center justify-center w-13 h-13 rounded-full bg-white border border-border-gray shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:bg-light-gray transition-colors"
+        class="hidden md:flex items-center justify-center w-13 h-13 rounded-full bg-white border border-border-gray shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:bg-light-gray transition-colors shrink-0"
         id="amenities-prev"
         aria-label="Previous amenities"
       >
@@ -192,63 +185,54 @@ const amenityPages = Array.from(
         </svg>
       </button>
 
-      <!-- Cards Container -->
-      <div
-        class="overflow-hidden w-full"
-        id="amenities-viewport"
-        style="touch-action: pan-y;"
-      >
-        <div
-          class="flex transition-transform duration-500 ease-out px-4 py-8 gap-8"
-          id="amenities-track"
-        >
+      <!-- Swiper Container -->
+      <div class="swiper amenities-swiper w-full">
+        <div class="swiper-wrapper py-8">
           {
-            amenityPages.map((page) => (
-              <div class="w-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {page.map((amenity) => (
-                  <div
-                    class="bg-white rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
-                    data-category={amenity.category.toLowerCase()}
-                  >
-                    <img
-                      src={amenity.image}
-                      alt={amenity.title}
-                      class="w-full h-50 object-cover"
-                    />
-                    <div class="p-6 flex flex-col gap-3">
-                      <div
+            groupedAmenities.map((amenity) => (
+              <div
+                class="swiper-slide h-auto"
+                data-category={amenity.category.toLowerCase()}
+              >
+                <div class="bg-white rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-full">
+                  <img
+                    src={amenity.image}
+                    alt={amenity.title}
+                    class="w-full h-50 object-cover"
+                  />
+                  <div class="p-6 flex flex-col gap-3">
+                    <div
+                      class:list={[
+                        "w-11 h-11 rounded-full flex items-center justify-center",
+                        amenity.iconColor === "sky-blue"
+                          ? "bg-sky-blue/10"
+                          : "bg-gold-warm/10",
+                      ]}
+                    >
+                      <svg
                         class:list={[
-                          "w-11 h-11 rounded-full flex items-center justify-center",
+                          "w-5.5 h-5.5",
                           amenity.iconColor === "sky-blue"
-                            ? "bg-sky-blue/10"
-                            : "bg-gold-warm/10",
+                            ? "text-sky-blue"
+                            : "text-gold-warm",
                         ]}
-                      >
-                        <svg
-                          class:list={[
-                            "w-5.5 h-5.5",
-                            amenity.iconColor === "sky-blue"
-                              ? "text-sky-blue"
-                              : "text-gold-warm",
-                          ]}
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          viewBox="0 0 24 24"
-                          set:html={icons[amenity.icon]}
-                        />
-                      </div>
-                      <h3 class="font-headline text-[22px] font-medium text-text-primary">
-                        {amenity.title}
-                      </h3>
-                      <p class="font-body text-[13px] text-medium-gray leading-relaxed">
-                        {amenity.description}
-                      </p>
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        viewBox="0 0 24 24"
+                        set:html={icons[amenity.icon]}
+                      />
                     </div>
+                    <h3 class="font-headline text-[22px] font-medium text-text-primary">
+                      {amenity.title}
+                    </h3>
+                    <p class="font-body text-[13px] text-medium-gray leading-relaxed">
+                      {amenity.description}
+                    </p>
                   </div>
-                ))}
+                </div>
               </div>
             ))
           }
@@ -258,7 +242,7 @@ const amenityPages = Array.from(
       <!-- Right Arrow -->
       <button
         type="button"
-        class="hidden md:flex items-center justify-center w-13 h-13 rounded-full bg-sky-blue shadow-[0_2px_8px_rgba(108,180,217,0.3)] hover:bg-sky-blue-light transition-colors"
+        class="hidden md:flex items-center justify-center w-13 h-13 rounded-full bg-sky-blue shadow-[0_2px_8px_rgba(108,180,217,0.3)] hover:bg-sky-blue-light transition-colors shrink-0"
         id="amenities-next"
         aria-label="Next amenities"
       >
@@ -278,7 +262,7 @@ const amenityPages = Array.from(
     <!-- Indicator Area -->
     <div class="flex flex-col items-center gap-8 mt-12 px-15">
       <!-- Pagination Dots -->
-      <div class="flex items-center gap-2.5" id="amenities-dots"></div>
+      <div class="amenities-pagination"></div>
 
       <!-- Category Pills -->
       <div
@@ -307,212 +291,90 @@ const amenityPages = Array.from(
 </section>
 
 <script>
-  const viewport = document.getElementById("amenities-viewport");
-  const track = document.getElementById("amenities-track");
-  const prevBtn = document.getElementById("amenities-prev");
-  const nextBtn = document.getElementById("amenities-next");
-  const dotsContainer = document.getElementById("amenities-dots");
-  const categoryBtns = document.querySelectorAll(
-    "#amenities-categories button",
-  );
-  const allPages = Array.from(
-    track?.querySelectorAll(":scope > div") || [],
-  ) as HTMLElement[];
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
 
-  let activeCategory = "recreation";
-  let currentPage = 0;
-  let touchStartX = 0;
-  const swipeThreshold = 50;
-  const totalPages = allPages.length;
+  const swiper = new Swiper('.amenities-swiper', {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 32,
+      },
+    },
+    navigation: {
+      nextEl: '#amenities-next',
+      prevEl: '#amenities-prev',
+    },
+    pagination: {
+      el: '.amenities-pagination',
+      clickable: true,
+    },
+  });
 
-  function getPageCategories(page: HTMLElement): string[] {
-    const cards = Array.from(page.querySelectorAll("[data-category]"));
-    return cards
-      .map((card) => card.getAttribute("data-category") || "")
-      .filter((category) => category.length > 0);
-  }
-
-  function getFirstPageForCategory(category: string): number {
-    return allPages.findIndex((page) =>
-      getPageCategories(page).includes(category),
-    );
-  }
-
-  function setActiveCategory(category: string) {
-    activeCategory = category;
-    categoryBtns.forEach((btn) => {
-      const btnCategory = (btn as HTMLElement).dataset.category;
-      if (btnCategory === category) {
-        btn.classList.remove(
-          "bg-light-gray",
-          "text-text-primary",
-          "hover:bg-border-gray",
-        );
-        btn.classList.add("bg-sky-blue", "text-white");
-      } else {
-        btn.classList.remove("bg-sky-blue", "text-white");
-        btn.classList.add(
-          "bg-light-gray",
-          "text-text-primary",
-          "hover:bg-border-gray",
-        );
-      }
+  function updateCategoryPills(activeCategory: string) {
+    document.querySelectorAll('#amenities-categories button').forEach((btn) => {
+      const btnEl = btn as HTMLElement;
+      const isActive = btnEl.dataset.category === activeCategory;
+      btnEl.classList.toggle('bg-sky-blue', isActive);
+      btnEl.classList.toggle('text-white', isActive);
+      btnEl.classList.toggle('bg-light-gray', !isActive);
+      btnEl.classList.toggle('text-text-primary', !isActive);
+      btnEl.classList.toggle('hover:bg-border-gray', !isActive);
     });
   }
 
-  function updateDots() {
-    if (!dotsContainer) return;
-    dotsContainer.innerHTML = "";
-
-    for (let i = 0; i < totalPages; i++) {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className =
-        i === currentPage
-          ? "w-2.5 h-2.5 rounded-full bg-sky-blue transition-all"
-          : "w-2 h-2 rounded-full bg-border-gray transition-all";
-      dot.setAttribute("aria-label", `Go to page ${i + 1}`);
-      dot.addEventListener("click", () => {
-        currentPage = i;
-        updateCarousel();
-      });
-      dotsContainer.appendChild(dot);
-    }
-  }
-
-  function updateCarousel() {
-    if (!track) return;
-    track.style.transform = `translateX(-${currentPage * 100}%)`;
-
-    const page = allPages[currentPage];
-    const firstCategory = getPageCategories(page)[0];
-    if (firstCategory && firstCategory !== activeCategory) {
-      setActiveCategory(firstCategory);
-    }
-
-    updateDots();
-  }
-
-  function triggerBounce(direction: "left" | "right") {
-    if (!viewport) return;
-
-    const bounceClass =
-      direction === "left" ? "amenities-bounce-left" : "amenities-bounce-right";
-    viewport.classList.remove(
-      "amenities-bounce-left",
-      "amenities-bounce-right",
-    );
-    void viewport.offsetWidth;
-    viewport.classList.add(bounceClass);
-    window.setTimeout(() => viewport.classList.remove(bounceClass), 350);
-  }
-
-  function jumpToCategory(category: string) {
-    const firstPageIndex = getFirstPageForCategory(category);
-    if (firstPageIndex < 0) return;
-
-    currentPage = firstPageIndex;
-    setActiveCategory(category);
-    updateCarousel();
-  }
-
-  prevBtn?.addEventListener("click", () => {
-    if (currentPage === 0) {
-      triggerBounce("left");
-      return;
-    }
-
-    currentPage -= 1;
-    updateCarousel();
+  swiper.on('slideChange', () => {
+    const activeCategory = (swiper.slides[swiper.activeIndex] as HTMLElement)?.dataset.category;
+    if (activeCategory) updateCategoryPills(activeCategory);
   });
 
-  nextBtn?.addEventListener("click", () => {
-    if (currentPage === totalPages - 1) {
-      triggerBounce("right");
-      return;
-    }
-
-    currentPage += 1;
-    updateCarousel();
-  });
-
-  categoryBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+  document.querySelectorAll('#amenities-categories button').forEach((btn) => {
+    btn.addEventListener('click', () => {
       const category = (btn as HTMLElement).dataset.category;
-      if (category) jumpToCategory(category);
+      if (!category) return;
+      const targetIdx = Array.from(swiper.slides).findIndex(
+        (slide) => (slide as HTMLElement).dataset.category === category,
+      );
+      if (targetIdx >= 0) swiper.slideTo(targetIdx);
     });
   });
-
-  viewport?.addEventListener(
-    "touchstart",
-    (event) => {
-      touchStartX = event.changedTouches[0]?.clientX || 0;
-    },
-    { passive: true },
-  );
-
-  viewport?.addEventListener(
-    "touchend",
-    (event) => {
-      const touchEndX = event.changedTouches[0]?.clientX || 0;
-      const deltaX = touchStartX - touchEndX;
-
-      if (Math.abs(deltaX) < swipeThreshold) return;
-
-      if (deltaX > 0) {
-        if (currentPage === totalPages - 1) {
-          triggerBounce("right");
-        } else {
-          currentPage += 1;
-          updateCarousel();
-        }
-      } else if (currentPage === 0) {
-        triggerBounce("left");
-      } else {
-        currentPage -= 1;
-        updateCarousel();
-      }
-    },
-    { passive: true },
-  );
-
-  // Initialize
-  setActiveCategory(activeCategory);
-  updateCarousel();
 </script>
 
 <style is:global>
-  @keyframes amenities-bounce-left {
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-    35% {
-      transform: translateX(-10px);
-    }
-    65% {
-      transform: translateX(4px);
-    }
+  .amenities-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
   }
 
-  @keyframes amenities-bounce-right {
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-    35% {
-      transform: translateX(10px);
-    }
-    65% {
-      transform: translateX(-4px);
-    }
+  .amenities-pagination .swiper-pagination-bullet {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #E0E0E0;
+    border-radius: 9999px;
+    opacity: 1;
+    transition: width 0.15s, height 0.15s, background 0.15s;
+    display: inline-block;
+    margin: 0;
   }
 
-  .amenities-bounce-left {
-    animation: amenities-bounce-left 0.35s ease-out;
+  .amenities-pagination .swiper-pagination-bullet-active {
+    width: 0.625rem;
+    height: 0.625rem;
+    background: #6CB4D9;
   }
 
-  .amenities-bounce-right {
-    animation: amenities-bounce-right 0.35s ease-out;
+  #amenities-prev.swiper-button-disabled,
+  #amenities-next.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 </style>
