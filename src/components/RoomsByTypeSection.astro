@@ -1,0 +1,29 @@
+---
+import RoomCard from './RoomCard.astro';
+import type { Room } from '../data/rooms';
+
+interface Props {
+  category: string;
+  rooms: Room[];
+}
+
+const { category, rooms } = Astro.props;
+---
+
+<section class="mb-16 last:mb-0">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 mb-8">
+    <h2
+      class="font-headline text-2xl md:text-3xl text-text-primary uppercase tracking-wide"
+    >
+      {category}
+    </h2>
+    <div class="flex-1 h-px bg-border-gray"></div>
+    <span class="font-body text-sm text-medium-gray">
+      {rooms.length} {rooms.length === 1 ? 'room' : 'rooms'}
+    </span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {rooms.map((room) => <RoomCard {...room} />)}
+  </div>
+</section>

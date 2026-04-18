@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<section class="relative w-full h-[30vh] min-h-65 max-h-120 overflow-hidden">
+  <div id="rooms-hero-carousel" class="absolute inset-0">
+    {
+      images.map((src, i) => (
+        <div
+          class:list={[
+            "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+            i === 0 ? "opacity-100" : "opacity-0",
+          ]}
+          data-slide
+        >
+          <Image
+            src={src}
+            alt=""
+            width={1600}
+            height={900}
+            inferSize={false}
+            class="w-full h-full object-cover object-center"
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/10"></div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>(
+    "#rooms-hero-carousel [data-slide]",
+  );
+
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.replace("opacity-100", "opacity-0");
+      current = (current + 1) % slides.length;
+      slides[current].classList.replace("opacity-0", "opacity-100");
+    }, 4000);
+  }
+</script>
