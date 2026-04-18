@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm add *)"
+      "Bash(pnpm add *)",
+      "Bash(curl -s http://localhost:4322/ -o /tmp/home.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:4322/)",
+      "Bash(curl -s \"http://localhost:4322/src/components/RoomsSection.astro?astro&type=script&index=0&lang.ts\")",
+      "Bash(node test-filter.mjs)"
+    ],
+    "additionalDirectories": [
+      "/tmp",
+      "/private/tmp"
     ]
   }
 }
