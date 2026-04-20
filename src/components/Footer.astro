@@ -1,4 +1,6 @@
 ---
+import { categories } from '../data/rooms';
+
 const currentYear = new Date().getFullYear();
 
 const quickLinks = [
@@ -9,13 +11,10 @@ const quickLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const roomTypes = [
-  { href: '/rooms/suites', label: 'Suites' },
-  { href: '/rooms/family', label: 'Family' },
-  { href: '/rooms/double', label: 'Double' },
-  { href: '/rooms/studio', label: 'Studio' },
-  { href: '/rooms/presidential', label: 'Presidential' },
-];
+const roomTypes = categories.map((category) => ({
+  href: `/rooms#${category.toLowerCase()}`,
+  label: category,
+}));
 
 const legalLinks = [
   { href: '/privacy', label: 'Privacy Policy' },
