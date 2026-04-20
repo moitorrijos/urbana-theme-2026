@@ -1,0 +1,204 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { rooms, type Room } from "../../data/rooms";
+
+export function getStaticPaths() {
+  return rooms.map((room) => ({
+    params: { slug: room.slug },
+    props: { room },
+  }));
+}
+
+interface Props {
+  room: Room;
+}
+
+const { room } = Astro.props;
+---
+
+<BaseLayout title={room.title} currentPage="rooms">
+  <!-- Bento Grid Gallery -->
+  <section class="container mx-auto px-4 pt-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[240px] gap-3">
+      <div
+        class="overflow-hidden md:col-span-2 md:row-span-2 aspect-4/3 md:aspect-auto"
+      >
+        <Image
+          src={room.gallery[0]}
+          alt={room.title}
+          width={1600}
+          height={1200}
+          inferSize={false}
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="overflow-hidden aspect-4/3 md:aspect-auto">
+        <Image
+          src={room.gallery[1]}
+          alt={room.title}
+          width={800}
+          height={600}
+          inferSize={false}
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="overflow-hidden aspect-4/3 md:aspect-auto">
+        <Image
+          src={room.gallery[2]}
+          alt={room.title}
+          width={800}
+          height={600}
+          inferSize={false}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-Column Content -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10">
+        <!-- Left: Room Info -->
+        <div>
+          <span
+            class="inline-block bg-sky-blue text-white font-body text-xs font-semibold uppercase tracking-wide px-3 py-1 mb-4"
+          >
+            {room.category}
+          </span>
+          <h1
+            class="font-headline text-4xl md:text-5xl text-text-primary mb-2 uppercase tracking-wide"
+          >
+            {room.title}
+          </h1>
+          <p class="font-body text-medium-gray text-lg mb-10">
+            From
+            <span class="text-sky-blue font-semibold">${room.price}</span>/night
+          </p>
+
+          <h2
+            class="font-headline text-2xl text-text-primary uppercase tracking-wide mb-6"
+          >
+            Room Amenities
+          </h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {
+              room.amenities.map((amenity) => (
+                <li class="flex items-center gap-3 font-body text-text-primary">
+                  <svg
+                    class="w-5 h-5 text-sky-blue shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {amenity}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Right: Booking Form -->
+        <aside class="bg-light-gray p-6 h-fit lg:sticky lg:top-6 shadow-sm">
+          <h3
+            class="font-headline text-xl text-text-primary uppercase tracking-wide mb-1"
+          >
+            Reserve
+          </h3>
+          <p class="font-body text-medium-gray text-sm mb-6">
+            From
+            <span class="text-sky-blue font-semibold">${room.price}</span>/night
+          </p>
+
+          <form class="flex flex-col gap-4" action="/book" method="get">
+            <div class="grid grid-cols-2 gap-3">
+              <div class="flex flex-col">
+                <label
+                  for="check-in"
+                  class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+                >
+                  Check In
+                </label>
+                <input
+                  type="date"
+                  id="check-in"
+                  name="check-in"
+                  class="border border-border-gray bg-white px-3 py-2.5 font-body text-sm text-text-primary focus:outline-none focus:border-sky-blue"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label
+                  for="check-out"
+                  class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+                >
+                  Check Out
+                </label>
+                <input
+                  type="date"
+                  id="check-out"
+                  name="check-out"
+                  class="border border-border-gray bg-white px-3 py-2.5 font-body text-sm text-text-primary focus:outline-none focus:border-sky-blue"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="flex flex-col">
+                <label
+                  for="guests"
+                  class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+                >
+                  Guests
+                </label>
+                <select
+                  id="guests"
+                  name="guests"
+                  class="border border-border-gray bg-white px-3 py-2.5 font-body text-sm text-text-primary focus:outline-none focus:border-sky-blue"
+                >
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5+ Guests</option>
+                </select>
+              </div>
+              <div class="flex flex-col">
+                <label
+                  for="rooms"
+                  class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+                >
+                  Rooms
+                </label>
+                <select
+                  id="rooms"
+                  name="rooms"
+                  class="border border-border-gray bg-white px-3 py-2.5 font-body text-sm text-text-primary focus:outline-none focus:border-sky-blue"
+                >
+                  <option value="1" selected>1 Room</option>
+                  <option value="2">2 Rooms</option>
+                  <option value="3">3 Rooms</option>
+                  <option value="4">4+ Rooms</option>
+                </select>
+              </div>
+            </div>
+
+            <input type="hidden" name="room" value={room.slug} />
+
+            <button
+              type="submit"
+              class="w-full bg-gold-warm hover:bg-amber-600 text-white font-body font-semibold text-sm py-3 rounded-sm transition-colors uppercase mt-2"
+            >
+              Book This Room
+            </button>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

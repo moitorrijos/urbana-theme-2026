@@ -6,7 +6,16 @@
       "Read(//tmp/**)",
       "Bash(curl -s http://localhost:4322/)",
       "Bash(curl -s \"http://localhost:4322/src/components/RoomsSection.astro?astro&type=script&index=0&lang.ts\")",
-      "Bash(node test-filter.mjs)"
+      "Bash(node test-filter.mjs)",
+      "Bash(grep -oE '\\\\.md\\\\\\\\:auto-rows[^}]{0,80}' /Users/moibookair15/Astro/urbana-theme/dist/_astro/index.B1ET74S1.css)",
+      "Bash(pnpm dev *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(node test-grid.mjs)",
+      "Bash(node test-grid2.mjs)",
+      "Bash(grep -oE '\\\\.aspect-4\\\\\\\\/3[^}]{0,60}' /Users/moibookair15/Astro/urbana-theme/dist/_astro/index.B1ET74S1.css)",
+      "Bash(grep -oE '\\\\.md\\\\\\\\:aspect-auto[^}]{0,40}' /Users/moibookair15/Astro/urbana-theme/dist/_astro/index.B1ET74S1.css)",
+      "Bash(kill 42226)",
+      "Bash(rm -f /tmp/test-grid.mjs /tmp/test-grid2.mjs /tmp/screenshot.mjs /tmp/astro-dev.log /tmp/room-*.png)"
     ],
     "additionalDirectories": [
       "/tmp",
