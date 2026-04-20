@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RoomsHeroCarousel from "../components/RoomsHeroCarousel.astro";
+import { amenities, icons } from "../data/amenities";
+
+const heroImages = amenities.map((a) => a.heroImage);
+---
+
+<BaseLayout title="Amenities" currentPage="amenities">
+  <RoomsHeroCarousel images={heroImages} />
+
+  <section class="py-16 bg-light-gray">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center gap-4 text-center mb-12">
+        <span
+          class="font-body text-sm font-medium text-gold-warm tracking-[3px]"
+        >
+          EXPERIENCE LUXURY
+        </span>
+        <h1
+          class="font-headline text-3xl md:text-4xl font-bold text-text-primary tracking-wide"
+        >
+          HOTEL AMENITIES
+        </h1>
+        <div class="w-15 h-0.75 bg-sky-blue"></div>
+        <p class="font-body text-base text-medium-gray max-w-lg">
+          Discover world-class facilities designed for your comfort and
+          convenience
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+      >
+        {
+          amenities.map((amenity) => (
+            <article class="bg-white rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-full flex flex-col">
+              <Image
+                src={amenity.image}
+                alt={amenity.title}
+                width={600}
+                height={400}
+                inferSize={false}
+                class="w-full h-50 object-cover"
+              />
+              <div class="p-6 flex flex-col gap-3">
+                <div
+                  class:list={[
+                    "w-11 h-11 rounded-full flex items-center justify-center",
+                    amenity.iconColor === "sky-blue"
+                      ? "bg-sky-blue/10"
+                      : "bg-gold-warm/10",
+                  ]}
+                >
+                  <svg
+                    class:list={[
+                      "w-5.5 h-5.5",
+                      amenity.iconColor === "sky-blue"
+                        ? "text-sky-blue"
+                        : "text-gold-warm",
+                    ]}
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    viewBox="0 0 24 24"
+                    set:html={icons[amenity.icon]}
+                  />
+                </div>
+                <h2
+                  class="font-headline text-[22px] font-medium text-text-primary"
+                >
+                  {amenity.title}
+                </h2>
+                <p
+                  class="font-body text-[13px] text-medium-gray leading-relaxed"
+                >
+                  {amenity.description}
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
