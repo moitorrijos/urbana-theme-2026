@@ -1,0 +1,280 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RoomsHeroCarousel from "../components/RoomsHeroCarousel.astro";
+import { amenities } from "../data/amenities";
+import { rooms, categories } from "../data/rooms";
+
+const heroImages = amenities.map((a) => a.heroImage);
+
+const roomsByCategory = categories.map((category) => ({
+  category,
+  items: rooms.filter((r) => r.category === category),
+}));
+---
+
+<BaseLayout title="Book" currentPage="book">
+  <RoomsHeroCarousel images={heroImages} />
+
+  <section class="py-16 bg-light-gray">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center gap-4 text-center mb-12">
+        <span
+          class="font-body text-sm font-medium text-gold-warm tracking-[3px]"
+        >
+          RESERVE YOUR STAY
+        </span>
+        <h1
+          class="font-headline text-3xl md:text-4xl font-bold text-text-primary tracking-wide"
+        >
+          BOOK YOUR STAY
+        </h1>
+        <div class="w-15 h-0.75 bg-sky-blue"></div>
+        <p class="font-body text-base text-medium-gray max-w-lg">
+          Choose your room, dates, and party size — we'll confirm your
+          reservation by email.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16"
+      >
+        <div
+          class="bg-white p-6 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex flex-col items-center text-center gap-3"
+        >
+          <div
+            class="w-11 h-11 rounded-full bg-sky-blue/10 flex items-center justify-center"
+          >
+            <svg
+              class="w-5 h-5 text-sky-blue"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h2
+            class="font-headline text-sm font-semibold text-text-primary tracking-wider uppercase"
+          >
+            Address
+          </h2>
+          <p class="font-body text-sm text-medium-gray leading-relaxed">
+            SOHO 555, Broadway<br />New York, NY
+          </p>
+        </div>
+
+        <div
+          class="bg-white p-6 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex flex-col items-center text-center gap-3"
+        >
+          <div
+            class="w-11 h-11 rounded-full bg-sky-blue/10 flex items-center justify-center"
+          >
+            <svg
+              class="w-5 h-5 text-sky-blue"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+          </div>
+          <h2
+            class="font-headline text-sm font-semibold text-text-primary tracking-wider uppercase"
+          >
+            Phone
+          </h2>
+          <a
+            href="tel:+12122204519"
+            class="font-body text-sm text-medium-gray hover:text-sky-blue transition-colors"
+          >
+            +212-220-4519
+          </a>
+        </div>
+
+        <div
+          class="bg-white p-6 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex flex-col items-center text-center gap-3"
+        >
+          <div
+            class="w-11 h-11 rounded-full bg-sky-blue/10 flex items-center justify-center"
+          >
+            <svg
+              class="w-5 h-5 text-sky-blue"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <h2
+            class="font-headline text-sm font-semibold text-text-primary tracking-wider uppercase"
+          >
+            Email
+          </h2>
+          <a
+            href="mailto:info@urbana.com"
+            class="font-body text-sm text-medium-gray hover:text-sky-blue transition-colors"
+          >
+            info@urbana.com
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="bg-white p-8 md:p-10 shadow-[0_4px_16px_rgba(0,0,0,0.06)] max-w-4xl mx-auto"
+      >
+        <h2
+          class="font-headline text-2xl text-text-primary uppercase tracking-wide mb-6"
+        >
+          Reservation Details
+        </h2>
+        <form class="flex flex-col gap-5" action="/book" method="get">
+          <div class="flex flex-col">
+            <label
+              for="room"
+              class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+            >
+              Room
+            </label>
+            <select
+              id="room"
+              name="room"
+              class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue bg-white"
+            >
+              <option value="">Any room</option>
+              {
+                roomsByCategory.map(({ category, items }) => (
+                  <optgroup label={category}>
+                    {items.map((r) => (
+                      <option value={r.slug}>
+                        {r.title} — ${r.price}/night
+                      </option>
+                    ))}
+                  </optgroup>
+                ))
+              }
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col">
+              <label
+                for="check-in"
+                class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+              >
+                Check In
+              </label>
+              <input
+                type="date"
+                id="check-in"
+                name="check-in"
+                class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <label
+                for="check-out"
+                class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+              >
+                Check Out
+              </label>
+              <input
+                type="date"
+                id="check-out"
+                name="check-out"
+                class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col">
+              <label
+                for="guests"
+                class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+              >
+                Guests
+              </label>
+              <select
+                id="guests"
+                name="guests"
+                class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue bg-white"
+              >
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col">
+              <label
+                for="rooms"
+                class="font-body text-xs font-semibold text-medium-gray uppercase mb-2"
+              >
+                Rooms
+              </label>
+              <select
+                id="rooms"
+                name="rooms"
+                class="border border-border-gray px-4 py-3 font-body text-text-primary focus:outline-none focus:border-sky-blue bg-white"
+              >
+                <option value="1" selected>1 Room</option>
+                <option value="2">2 Rooms</option>
+                <option value="3">3 Rooms</option>
+                <option value="4">4+ Rooms</option>
+              </select>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-gold-warm hover:bg-amber-600 text-white font-body font-semibold text-sm py-3 rounded-sm transition-colors uppercase mt-2"
+          >
+            Confirm Reservation
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const roomSlug = params.get("room");
+    if (roomSlug) {
+      const select = document.getElementById("room") as HTMLSelectElement | null;
+      if (select && Array.from(select.options).some((o) => o.value === roomSlug)) {
+        select.value = roomSlug;
+      }
+    }
+    for (const key of ["check-in", "check-out", "guests", "rooms"]) {
+      const value = params.get(key);
+      if (!value) continue;
+      const el = document.getElementById(key) as
+        | HTMLInputElement
+        | HTMLSelectElement
+        | null;
+      if (el) el.value = value;
+    }
+  </script>
+</BaseLayout>
