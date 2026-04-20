@@ -6,10 +6,30 @@ interface Props {
 const { currentPage = "home" } = Astro.props;
 
 const navLinks = [
-  { href: "/", label: "HOME", id: "home" },
-  { href: "/rooms", label: "ROOMS", id: "rooms" },
-  { href: "/amenities", label: "AMENITIES", id: "amenities" },
-  { href: "/contact", label: "CONTACT", id: "contact" },
+  {
+    href: "/",
+    label: "HOME",
+    id: "home",
+    icon: '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  },
+  {
+    href: "/rooms",
+    label: "ROOMS",
+    id: "rooms",
+    icon: '<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M2 17h20"/><path d="M6 10V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>',
+  },
+  {
+    href: "/amenities",
+    label: "AMENITIES",
+    id: "amenities",
+    icon: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',
+  },
+  {
+    href: "/contact",
+    label: "CONTACT",
+    id: "contact",
+    icon: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  },
 ];
 ---
 
@@ -57,103 +77,58 @@ const navLinks = [
         }
       </ul>
 
-      <!-- Book Now Button -->
+      <!-- Book Now Button (desktop) -->
       <a
         href="/book"
         class="bg-sky-blue hidden lg:block hover:bg-sky-blue-light text-white font-body font-semibold text-sm px-6 py-2 transition-colors"
       >
         BOOK NOW
       </a>
-
-      <!-- Mobile Hamburger Button -->
-      <button
-        class="md:hidden text-white"
-        aria-label="Open menu"
-        id="drawer-open"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
     </div>
   </nav>
 </header>
 
-<!-- Backdrop -->
-<div
-  id="drawer-backdrop"
-  class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
-></div>
-
-<!-- Drawer -->
-<div
-  id="mobile-drawer"
-  class="fixed top-0 right-0 h-full w-72 bg-navbar z-50 translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
+<!-- Mobile Bottom Nav -->
+<nav
+  class="md:hidden fixed bottom-3 inset-x-3 z-40 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.12)] flex items-stretch justify-between p-2 gap-1"
   aria-label="Mobile navigation"
 >
-  <!-- Drawer Header -->
-  <div class="flex items-center justify-between px-6 py-5 border-b border-white/10">
-    <img src="/urbana-white-logo.svg" alt="Urbana Hotel" class="h-5" />
-    <button id="drawer-close" aria-label="Close menu" class="text-white hover:text-sky-blue-light transition-colors">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Drawer Links -->
-  <ul class="flex flex-col px-6 py-6 gap-1 flex-1">
-    {
-      navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class:list={[
-              "drawer-link font-headline text-sm tracking-wide transition-colors block py-3 border-b border-white/10",
-              currentPage === link.id
-                ? "text-sky-blue"
-                : "text-white hover:text-sky-blue-light",
-            ]}
-          >
+  {
+    navLinks.map((link) => {
+      const active = currentPage === link.id;
+      return (
+        <a
+          href={link.href}
+          aria-current={active ? "page" : undefined}
+          class:list={[
+            "flex-1 flex flex-col items-center justify-center gap-1 py-2 relative transition-colors",
+            active ? "text-sky-blue" : "text-text-primary",
+          ]}
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            set:html={link.icon}
+          />
+          <span class="font-body text-[10px] font-semibold tracking-wider">
             {link.label}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-
-  <!-- Book Now -->
-  <div class="px-6 py-6">
-    <a
-      href="/book"
-      class="drawer-link bg-sky-blue hover:bg-sky-blue-light text-white font-body font-semibold text-sm px-6 py-3 transition-colors block text-center"
-    >
-      BOOK NOW
-    </a>
-  </div>
-</div>
-
-<script>
-  const openBtn = document.getElementById("drawer-open");
-  const closeBtn = document.getElementById("drawer-close");
-  const drawer = document.getElementById("mobile-drawer");
-  const backdrop = document.getElementById("drawer-backdrop");
-  const drawerLinks = document.querySelectorAll(".drawer-link");
-
-  function openDrawer() {
-    drawer?.classList.remove("translate-x-full");
-    backdrop?.classList.remove("opacity-0", "pointer-events-none");
-    document.body.style.overflow = "hidden";
+          </span>
+          {active && (
+            <span class="absolute bottom-0.5 w-1 h-1 rounded-full bg-sky-blue" />
+          )}
+        </a>
+      );
+    })
   }
-
-  function closeDrawer() {
-    drawer?.classList.add("translate-x-full");
-    backdrop?.classList.add("opacity-0", "pointer-events-none");
-    document.body.style.overflow = "";
-  }
-
-  openBtn?.addEventListener("click", openDrawer);
-  closeBtn?.addEventListener("click", closeDrawer);
-  backdrop?.addEventListener("click", closeDrawer);
-  drawerLinks.forEach((link) => link.addEventListener("click", closeDrawer));
-</script>
+  <a
+    href="/book"
+    class="bg-sky-blue hover:bg-sky-blue-light text-white font-body font-semibold text-[11px] tracking-wider px-4 rounded-xl flex items-center justify-center text-center leading-tight transition-colors min-w-16"
+  >
+    BOOK<br />NOW
+  </a>
+</nav>
