@@ -14,6 +14,9 @@ importers:
       astro:
         specifier: ^6.1.8
         version: 6.1.8(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.1)(typescript@5.9.3)(yaml@2.8.2)
+      fslightbox:
+        specifier: ^3.7.5
+        version: 3.7.5
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
@@ -940,6 +943,9 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  fslightbox@3.7.5:
+    resolution: {integrity: sha512-swEUrwMOyiBhdkPf3GXj4nxARX5d8/9yfVCdxgPLl9+ZMiacUTub9O2wxLI0Y2G2jI85Qxfqpv2I24vlbx0zfg==}
 
   github-slugger@2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
@@ -2458,6 +2464,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  fslightbox@3.7.5: {}
 
   github-slugger@2.0.0: {}
 

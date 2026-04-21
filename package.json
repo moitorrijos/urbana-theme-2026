@@ -11,6 +11,7 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.9.0",
     "astro": "^6.1.8",
+    "fslightbox": "^3.7.5",
     "sharp": "^0.34.5",
     "swiper": "^12.1.2"
   },
