@@ -24,8 +24,11 @@ const { room } = Astro.props;
       id="bento-image-grid"
       class="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[240px] gap-3"
     >
-      <div
-        class="overflow-hidden md:col-span-2 md:row-span-2 aspect-4/3 md:aspect-auto"
+      <a
+        href={room.gallery[0]}
+        data-fslightbox="room-gallery"
+        aria-label={`View ${room.title} photo 1`}
+        class="overflow-hidden md:col-span-2 md:row-span-2 aspect-4/3 md:aspect-auto group relative cursor-zoom-in"
       >
         <Image
           src={room.gallery[0]}
@@ -33,31 +36,45 @@ const { room } = Astro.props;
           width={1600}
           height={1200}
           inferSize={false}
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </div>
-      <div class="overflow-hidden aspect-4/3 md:aspect-auto">
+      </a>
+      <a
+        href={room.gallery[1]}
+        data-fslightbox="room-gallery"
+        aria-label={`View ${room.title} photo 2`}
+        class="overflow-hidden aspect-4/3 md:aspect-auto group relative cursor-zoom-in"
+      >
         <Image
           src={room.gallery[1]}
           alt={room.title}
           width={800}
           height={600}
           inferSize={false}
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </div>
-      <div class="overflow-hidden aspect-4/3 md:aspect-auto">
+      </a>
+      <a
+        href={room.gallery[2]}
+        data-fslightbox="room-gallery"
+        aria-label={`View ${room.title} photo 3`}
+        class="overflow-hidden aspect-4/3 md:aspect-auto group relative cursor-zoom-in"
+      >
         <Image
           src={room.gallery[2]}
           alt={room.title}
           width={800}
           height={600}
           inferSize={false}
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </div>
+      </a>
     </div>
   </section>
+
+  <script>
+    import "fslightbox";
+  </script>
 
   <!-- Two-Column Content -->
   <section class="py-12 md:py-16 bg-white">
