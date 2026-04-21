@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const lastUpdated = "January 1, 2026";
+
+const sections = [
+  {
+    title: "Acceptance of Terms",
+    body: [
+      "By accessing and using the Urbana City Hotel website or booking services, you accept and agree to be bound by these Terms of Service. If you do not agree, please do not use our services.",
+    ],
+  },
+  {
+    title: "Reservations and Bookings",
+    body: [
+      "All reservations are subject to availability and confirmation. A valid credit card and identification may be required at the time of booking and check-in.",
+      "Rates are quoted in the currency displayed at the time of booking and may be subject to applicable taxes and fees.",
+    ],
+  },
+  {
+    title: "Cancellations and Refunds",
+    body: [
+      "Cancellation policies vary by rate plan and are disclosed at the time of booking. Cancellations outside the permitted window may result in partial or full charges.",
+      "No-shows may be charged the full amount of the reservation.",
+    ],
+  },
+  {
+    title: "Check-In and Check-Out",
+    body: [
+      "Standard check-in time is 3:00 PM and check-out is 11:00 AM. Early check-in and late check-out are subject to availability and may incur additional charges.",
+    ],
+  },
+  {
+    title: "Guest Conduct",
+    body: [
+      "Guests are expected to behave in a manner that does not disturb other guests or damage property. We reserve the right to refuse service or terminate a stay for conduct deemed inappropriate, unsafe, or unlawful.",
+    ],
+  },
+  {
+    title: "Damages and Liability",
+    body: [
+      "Guests are responsible for any damage caused to hotel property during their stay. Charges for repairs or replacement may be applied to the guest's account.",
+      "We are not liable for loss, theft, or damage to personal belongings, except as required by law.",
+    ],
+  },
+  {
+    title: "Intellectual Property",
+    body: [
+      "All content on this website, including text, images, logos, and design, is the property of Urbana City Hotel or its licensors and is protected by intellectual property laws. You may not reproduce or redistribute content without written permission.",
+    ],
+  },
+  {
+    title: "Limitation of Liability",
+    body: [
+      "To the maximum extent permitted by law, Urbana City Hotel shall not be liable for any indirect, incidental, or consequential damages arising from your use of our website or services.",
+    ],
+  },
+  {
+    title: "Governing Law",
+    body: [
+      "These Terms are governed by the laws of the State of New York, without regard to its conflict of laws principles. Any disputes shall be resolved in the courts of New York, NY.",
+    ],
+  },
+  {
+    title: "Changes to These Terms",
+    body: [
+      "We may revise these Terms at any time. Continued use of our services after changes are posted constitutes acceptance of the revised Terms.",
+    ],
+  },
+  {
+    title: "Contact Us",
+    body: [
+      "For questions regarding these Terms, please contact us at info@urbana.com or +212-220-4519.",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Terms of Service"
+  description="Urbana Hotel Terms of Service"
+  currentPage="terms"
+>
+  <section class="bg-navbar py-16">
+    <div class="container mx-auto px-4 flex flex-col items-center gap-4 text-center">
+      <span class="font-body text-sm font-medium text-gold-warm tracking-[3px]">
+        LEGAL
+      </span>
+      <h1
+        class="font-headline text-3xl md:text-4xl font-bold text-white tracking-wide"
+      >
+        TERMS OF SERVICE
+      </h1>
+      <div class="w-15 h-0.75 bg-sky-blue"></div>
+      <p class="font-body text-sm text-gray-300">
+        Last updated: {lastUpdated}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-light-gray">
+    <div class="container mx-auto px-4">
+      <div
+        class="bg-white p-8 md:p-12 shadow-[0_4px_16px_rgba(0,0,0,0.06)] max-w-3xl mx-auto flex flex-col gap-8"
+      >
+        {
+          sections.map((section) => (
+            <div class="flex flex-col gap-3">
+              <h2 class="font-headline text-xl text-text-primary uppercase tracking-wide">
+                {section.title}
+              </h2>
+              {section.body.map((paragraph) => (
+                <p class="font-body text-sm text-medium-gray leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
