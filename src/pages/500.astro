@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const image =
+  "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=1200&h=1400&fit=crop";
+---
+
+<BaseLayout
+  title="500 — Something Went Wrong"
+  description="We've made a mess of this one. Our team is already on it."
+  currentPage="500"
+>
+  <section class="bg-light-gray min-h-[calc(100vh-200px)] flex items-center">
+    <div class="container mx-auto px-4 py-16">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto"
+      >
+        <div
+          class="relative order-2 md:order-1 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+        >
+          <img
+            src={image}
+            alt="Housekeeping cart in a hotel corridor"
+            loading="eager"
+            class="w-full h-[320px] md:h-[480px] md:h-[560px] object-cover"
+          />
+          <div
+            class="absolute top-4 left-4 bg-white px-3 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center gap-2"
+          >
+            <span class="w-2 h-2 rounded-full bg-sky-blue animate-pulse"></span>
+            <span
+              class="font-body text-[10px] font-semibold text-text-primary tracking-[2px] uppercase"
+            >
+              Cleaning in Progress
+            </span>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 flex flex-col gap-6">
+          <span
+            class="font-body text-sm font-medium text-gold-warm tracking-[3px]"
+          >
+            UNEXPECTED SPILL
+          </span>
+          <h1
+            class="font-headline font-bold text-text-primary leading-[0.9] text-[120px] md:text-[180px] tracking-tight"
+          >
+            500
+          </h1>
+          <div class="w-15 h-0.75 bg-sky-blue"></div>
+          <h2
+            class="font-headline text-2xl md:text-3xl font-bold text-text-primary uppercase tracking-wide"
+          >
+            We've Made a Mess of This One
+          </h2>
+          <p
+            class="font-body text-base text-medium-gray leading-relaxed max-w-md"
+          >
+            Something went wrong on our end — but don't worry, our team is
+            already mopping it up. Give us a moment to tidy things, then try
+            again. Or visit another part of the hotel while we work.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-2">
+            <a
+              href="/"
+              class="bg-gold-warm hover:bg-amber-600 text-white font-body font-semibold text-sm px-6 py-3 transition-colors uppercase tracking-wider text-center"
+            >
+              Back to Lobby
+            </a>
+            <a
+              href="/contact"
+              class="border border-text-primary text-text-primary hover:bg-text-primary hover:text-white font-body font-semibold text-sm px-6 py-3 transition-colors uppercase tracking-wider text-center"
+            >
+              Contact Reception
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
