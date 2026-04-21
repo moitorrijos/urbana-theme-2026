@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.9.0",
-    "astro": "^5.17.1",
+    "astro": "^6.1.8",
     "sharp": "^0.34.5",
     "swiper": "^12.1.2"
   },
