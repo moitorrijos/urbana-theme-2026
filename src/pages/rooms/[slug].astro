@@ -20,7 +20,10 @@ const { room } = Astro.props;
 <BaseLayout title={room.title} currentPage="rooms">
   <!-- Bento Grid Gallery -->
   <section class="container mx-auto px-4 pt-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[240px] gap-3">
+    <div
+      id="bento-image-grid"
+      class="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[240px] gap-3"
+    >
       <div
         class="overflow-hidden md:col-span-2 md:row-span-2 aspect-4/3 md:aspect-auto"
       >
