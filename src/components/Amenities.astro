@@ -1,32 +1,45 @@
 ---
 import { categories, groupedAmenities, icons } from "../data/amenities";
+
+// Larger crops for the full-bleed frame cards.
+const slides = groupedAmenities.map((amenity) => ({
+  ...amenity,
+  image: amenity.image.replace("w=600&h=400", "w=800&h=600"),
+}));
 ---
 
 <section class="py-20 bg-white">
   <div class="container mx-auto px-4">
     <!-- Header -->
-    <div class="flex flex-col items-center gap-4 mb-12 px-15">
-      <span class="font-body text-sm font-medium text-gold-warm tracking-[3px]">
-        EXPERIENCE LUXURY
-      </span>
-      <h2
-        class="font-headline text-3xl md:text-[42px] font-medium text-text-primary"
+    <div
+      class="flex flex-col lg:flex-row lg:items-baseline-last lg:justify-start gap-8 lg:gap-6 mb-10 md:mb-14"
+    >
+      <div class="flex flex-col gap-3">
+        <span
+          class="font-body text-sm font-medium text-gold-warm tracking-[3px]"
+        >
+          EXPERIENCE LUXURY
+        </span>
+        <h2
+          class="font-body font-extrabold uppercase text-text-primary text-3xl md:text-4xl lg:text-5xl tracking-[-0.01em]"
+        >
+          Hotel Amenities
+        </h2>
+      </div>
+      <p
+        class="font-body text-base text-medium-gray text-left max-w-md lg:shrink-0"
       >
-        Hotel Amenities
-      </h2>
-      <div class="w-15 h-0.75 bg-sky-blue"></div>
-      <p class="font-body text-base text-medium-gray text-center max-w-lg">
         Discover world-class facilities designed for your comfort and
         convenience
       </p>
     </div>
 
     <!-- Carousel Wrapper -->
-    <div class="flex items-center justify-center gap-6 lg:px-10">
+    <div class="relative">
       <!-- Left Arrow -->
       <button
         type="button"
-        class="hidden md:flex items-center justify-center w-13 h-13 rounded-full bg-white border border-border-gray shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:bg-light-gray transition-colors shrink-0"
+        class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-13 h-13 rounded-full bg-white border border-border-gray shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:bg-light-gray transition-colors shrink-0"
         id="amenities-prev"
         aria-label="Previous amenities"
       >
@@ -46,35 +59,31 @@ import { categories, groupedAmenities, icons } from "../data/amenities";
 
       <!-- Swiper Container -->
       <div class="swiper amenities-swiper w-full">
-        <div class="swiper-wrapper py-8">
+        <div class="swiper-wrapper">
           {
-            groupedAmenities.map((amenity) => (
+            slides.map((amenity) => (
               <div
                 class="swiper-slide h-auto"
                 data-category={amenity.category.toLowerCase()}
               >
-                <div class="bg-white rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-full">
+                <div class="group relative block overflow-hidden aspect-[4/3] bg-text-primary">
                   <img
                     src={amenity.image}
                     alt={amenity.title}
-                    class="w-full h-50 object-cover"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div class="p-6 flex flex-col gap-3">
-                    <div
-                      class:list={[
-                        "w-11 h-11 rounded-full flex items-center justify-center",
-                        amenity.iconColor === "sky-blue"
-                          ? "bg-sky-blue/10"
-                          : "bg-gold-warm/10",
-                      ]}
+
+                  {/* Legibility wash under the caption */}
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/30" />
+
+                  {/* Inset frame + caption */}
+                  <div class="absolute inset-4 lg:inset-5 border border-white/70 flex flex-col justify-between gap-4 p-4 lg:p-6">
+                    <span
+                      class="shrink-0 w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-white/80 flex items-center justify-center text-white"
+                      aria-hidden="true"
                     >
                       <svg
-                        class:list={[
-                          "w-5.5 h-5.5",
-                          amenity.iconColor === "sky-blue"
-                            ? "text-sky-blue"
-                            : "text-gold-warm",
-                        ]}
+                        class="w-5 h-5"
                         fill="none"
                         stroke="currentColor"
                         stroke-width="2"
@@ -83,13 +92,15 @@ import { categories, groupedAmenities, icons } from "../data/amenities";
                         viewBox="0 0 24 24"
                         set:html={icons[amenity.icon]}
                       />
+                    </span>
+                    <div class="flex flex-col gap-2">
+                      <h3 class="font-body text-white uppercase text-lg lg:text-2xl leading-tight tracking-[0.02em]">
+                        {amenity.title}
+                      </h3>
+                      <p class="font-body text-xs lg:text-[13px] text-white/80 leading-relaxed max-w-sm">
+                        {amenity.description}
+                      </p>
                     </div>
-                    <h3 class="font-headline text-[22px] font-medium text-text-primary">
-                      {amenity.title}
-                    </h3>
-                    <p class="font-body text-[13px] text-medium-gray leading-relaxed">
-                      {amenity.description}
-                    </p>
                   </div>
                 </div>
               </div>
@@ -101,7 +112,7 @@ import { categories, groupedAmenities, icons } from "../data/amenities";
       <!-- Right Arrow -->
       <button
         type="button"
-        class="hidden md:flex items-center justify-center w-13 h-13 rounded-full bg-sky-blue shadow-[0_2px_8px_rgba(108,180,217,0.3)] hover:bg-sky-blue-light transition-colors shrink-0"
+        class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-13 h-13 rounded-full bg-sky-blue shadow-[0_2px_8px_rgba(108,180,217,0.3)] hover:bg-sky-blue-light transition-colors shrink-0"
         id="amenities-next"
         aria-label="Next amenities"
       >
