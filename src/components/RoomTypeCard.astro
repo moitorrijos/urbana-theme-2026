@@ -1,0 +1,56 @@
+---
+interface Props {
+  slug?: string;
+  image: string;
+  title: string;
+  href?: string;
+}
+
+const { slug, image, title, href = slug ? `/rooms/${slug}` : "/rooms" } =
+  Astro.props;
+---
+
+<a
+  href={href}
+  class="group relative block overflow-hidden aspect-square bg-text-primary"
+>
+  <img
+    src={image}
+    alt={title}
+    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+
+  <!-- Legibility wash under the caption -->
+  <div
+    class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"
+  >
+  </div>
+
+  <!-- Inset frame + caption -->
+  <div
+    class="absolute inset-5 border border-white/70 flex items-end justify-between gap-4 p-5 md:p-6"
+  >
+    <h3
+      class="font-body text-white uppercase text-xl md:text-2xl leading-tight tracking-[0.02em] max-w-[70%]"
+    >
+      {title}
+    </h3>
+    <span
+      class="shrink-0 w-12 h-12 rounded-full border border-white/80 flex items-center justify-center text-white group-hover:bg-white group-hover:text-text-primary transition-colors"
+      aria-hidden="true"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        viewBox="0 0 24 24"
+      >
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+    </span>
+  </div>
+</a>
