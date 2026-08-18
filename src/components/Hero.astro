@@ -16,29 +16,40 @@ const {
 } = Astro.props;
 ---
 
+<!-- Top padding clears the overlaid header (top bar 44px + nav 64/80px) -->
 <section
-  class="relative h-[75vh] flex items-center bg-cover bg-bottom"
-  style={`background-image: url('${backgroundImage}')`}
+  class="relative overflow-hidden pt-[108px] md:pt-[124px] bg-gradient-to-r from-[#3EBBEF] via-[#5BC7F2] to-[#DCF1FC]"
 >
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/10"></div>
+  <!-- Building: masked so the photo's flat sky melts into the gradient -->
+  <div
+    class="pointer-events-none absolute bottom-0 right-0 h-full w-[85%] md:w-[62%] overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,#000_25%,#000_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,#000_25%,#000_88%,transparent_100%)]"
+    aria-hidden="true"
+  >
+    <img
+      src={backgroundImage}
+      alt=""
+      class="absolute bottom-0 right-[-110%] md:right-[-45%] h-[110%] md:h-[140%] w-auto max-w-none"
+    />
+  </div>
 
   <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-xl">
+    <div class="max-w-md sm:max-w-xl lg:max-w-[46rem] py-16 md:py-28 lg:py-36">
       <h1
-        class="font-headline text-5xl md:text-6xl font-bold text-white leading-tight mb-4"
+        class="font-body font-extrabold uppercase text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-[-0.01em]"
       >
         {headline}
       </h1>
       {
         subheadline && (
-          <p class="font-body text-xl text-white mb-8">{subheadline}</p>
+          <p class="font-body font-light text-white text-xl md:text-3xl mt-8 md:mt-12">
+            {subheadline}
+          </p>
         )
       }
       <a
         href={ctaHref}
-        class="inline-block bg-transparent border-2 border-white text-white font-body font-semibold text-sm px-8 py-3 hover:bg-white hover:text-text-primary transition-colors"
+        class="inline-block mt-10 md:mt-16 rounded-full bg-white text-text-primary font-body text-sm tracking-[0.15em] px-14 py-4 shadow-sm hover:bg-text-primary hover:text-white transition-colors"
       >
         {ctaText}
       </a>

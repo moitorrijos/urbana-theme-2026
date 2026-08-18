@@ -1,66 +1,41 @@
 ---
-import RoomCard from './RoomCard.astro';
+import RoomTypeCard from './RoomTypeCard.astro';
+import { rooms as allRooms, categories as roomCategories } from '../data/rooms';
 
-const categories = ['ALL', 'PREMIUM', 'PRESIDENTIAL', 'CLASSIC'];
+const categories = ['ALL', ...roomCategories.map((c) => c.toUpperCase())];
 
-const rooms = [
-  {
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400&h=300&fit=crop',
-    title: 'Premium Suite',
-    category: 'Premium',
-    price: 245,
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop',
-    title: 'Presidential Suite',
-    category: 'Presidential',
-    price: 445,
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&h=300&fit=crop',
-    title: 'Classic Room',
-    category: 'Classic',
-    price: 145,
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400&h=300&fit=crop',
-    title: 'Premium Deluxe',
-    category: 'Premium',
-    price: 295,
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop',
-    title: 'Classic Double',
-    category: 'Classic',
-    price: 165,
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&h=300&fit=crop',
-    title: 'Presidential Penthouse',
-    category: 'Presidential',
-    price: 695,
-  },
-];
+// Portrait crops read better in the tall frame cards.
+const rooms = allRooms.slice(0, 6).map((room) => ({
+  ...room,
+  image: room.image.replace('w=800&h=600', 'w=800&h=1000'),
+}));
 ---
 
-<section class="py-16 bg-light-gray">
+<section class="py-16 md:py-24 bg-light-gray">
   <div class="container mx-auto px-4">
     <!-- Header -->
-    <div class="text-center mb-12">
-      <h2 class="font-headline text-3xl md:text-4xl text-text-primary mb-8">
-        AVAILABLE ROOMS
+    <div
+      class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-10 md:mb-14"
+    >
+      <h2
+        class="font-body font-extrabold uppercase text-text-primary text-3xl md:text-4xl lg:text-5xl tracking-[-0.01em]"
+      >
+        Available Rooms
       </h2>
 
       <!-- Filter Tabs -->
-      <div class="flex flex-wrap justify-center gap-2" id="room-filters">
+      <div
+        class="grid grid-cols-2 gap-px bg-border-gray md:flex md:gap-0 md:bg-white md:shrink-0 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+        id="room-filters"
+      >
         {categories.map((category, index) => (
           <button
             type="button"
             class:list={[
-              'font-body text-sm font-semibold px-6 py-2 transition-colors',
+              'font-body text-xs md:text-sm tracking-[0.12em] uppercase px-6 md:px-10 py-4 md:border-l md:border-border-gray md:first:border-l-0 transition-colors',
               index === 0
-                ? 'bg-sky-blue text-white'
-                : 'bg-white text-text-primary hover:bg-sky-blue hover:text-white',
+                ? 'bg-text-primary text-white'
+                : 'bg-white text-text-primary hover:bg-light-gray',
             ]}
             data-filter={category.toLowerCase()}
           >
@@ -74,7 +49,7 @@ const rooms = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="rooms-grid">
       {rooms.map((room) => (
         <div data-category={room.category.toLowerCase()}>
-          <RoomCard {...room} />
+          <RoomTypeCard slug={room.slug} image={room.image} title={room.title} />
         </div>
       ))}
     </div>
@@ -96,11 +71,11 @@ const rooms = [
 
       // Update active button styles
       filterButtons.forEach((btn) => {
-        btn.classList.remove('bg-sky-blue', 'text-white');
-        btn.classList.add('bg-white', 'text-text-primary');
+        btn.classList.remove('bg-text-primary', 'text-white');
+        btn.classList.add('bg-white', 'text-text-primary', 'hover:bg-light-gray');
       });
-      button.classList.remove('bg-white', 'text-text-primary');
-      button.classList.add('bg-sky-blue', 'text-white');
+      button.classList.remove('bg-white', 'text-text-primary', 'hover:bg-light-gray');
+      button.classList.add('bg-text-primary', 'text-white');
 
       // Remove all cards, then re-append matching ones so auto-animate can detect changes
       allCards.forEach((card) => card.remove());

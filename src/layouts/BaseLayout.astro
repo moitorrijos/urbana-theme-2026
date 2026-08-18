@@ -7,12 +7,15 @@ interface Props {
   title: string;
   description?: string;
   currentPage?: string;
+  /** Overlay the header on the first section instead of stacking above it. */
+  navOverlay?: boolean;
 }
 
 const {
   title,
   description = 'Urbana Hotel - Your Place to Stay in the Big City',
   currentPage = 'home',
+  navOverlay = false,
 } = Astro.props;
 ---
 
@@ -28,7 +31,7 @@ const {
     <title>{title} | Urbana Hotel</title>
   </head>
   <body class="font-body text-text-primary bg-light-gray min-h-screen pb-24 md:pb-0">
-    <Navigation currentPage={currentPage} />
+    <Navigation currentPage={currentPage} overlay={navOverlay} />
     <main>
       <slot />
     </main>

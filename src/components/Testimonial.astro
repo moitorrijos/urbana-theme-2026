@@ -57,39 +57,49 @@ const testimonials = [
 ];
 ---
 
-<section class="py-20 bg-light-gray">
-  <div class="container mx-auto px-4 md:px-15">
+<section class="py-20 bg-light-gray overflow-hidden">
+  <div class="container mx-auto px-4">
     <!-- Header -->
-    <div class="flex flex-col items-center gap-4 mb-12">
-      <span class="font-body text-sm font-medium text-gold-warm tracking-[3px]">
-        GUEST EXPERIENCES
-      </span>
-      <h2 class="font-headline text-3xl md:text-[42px] font-medium text-text-primary">
-        What Our Guests Say
-      </h2>
-      <div class="w-15 h-0.75 bg-sky-blue"></div>
+    <div
+      class="flex flex-col lg:flex-row lg:items-baseline-last lg:justify-start gap-8 lg:gap-6 mb-10 md:mb-14"
+    >
+      <div class="flex flex-col gap-3">
+        <span class="font-body text-sm font-medium text-gold-warm tracking-[3px]">
+          GUEST EXPERIENCES
+        </span>
+        <h2
+          class="font-body font-extrabold uppercase text-text-primary text-3xl md:text-4xl lg:text-5xl tracking-[-0.01em]"
+        >
+          What Our Guests Say
+        </h2>
+      </div>
+      <p
+        class="font-body text-base text-medium-gray text-left max-w-md lg:shrink-0"
+      >
+        Hear from guests who have stayed with us in the heart of the city
+      </p>
     </div>
 
     <!-- Carousel Area -->
-    <div class="flex items-center justify-center gap-8">
+    <div class="relative">
       <!-- Left Arrow -->
       <button
         type="button"
-        class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white border border-border-gray hover:bg-light-gray transition-colors shrink-0"
+        class="hidden md:flex absolute -left-2 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-10 h-10 rounded-full bg-white border border-border-gray shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:bg-light-gray transition-colors shrink-0"
         id="testimonial-prev"
         aria-label="Previous testimonial"
       >
-        <svg class="w-6 h-6 text-text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 text-text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <!-- Swiper Container -->
-      <div class="swiper testimonial-swiper w-full max-w-250">
+      <div class="swiper testimonial-swiper w-full">
         <div class="swiper-wrapper">
           {testimonials.map((testimonial) => (
             <div class="swiper-slide h-auto">
-              <div class="bg-white rounded-lg p-4 lg:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] flex flex-col items-center gap-5 h-full">
+              <div class="bg-white rounded-lg p-4 md:p-9 shadow-[0_4px_20px_rgba(0,0,0,0.06)] flex flex-col items-center gap-5 w-full h-full">
                 <!-- Quote Icon -->
                 <svg class="w-8 h-8 text-gold-warm" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -127,11 +137,11 @@ const testimonials = [
       <!-- Right Arrow -->
       <button
         type="button"
-        class="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-sky-blue hover:bg-sky-blue-light transition-colors shrink-0"
+        class="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-10 h-10 rounded-full bg-sky-blue shadow-[0_2px_8px_rgba(108,180,217,0.3)] hover:bg-sky-blue-light transition-colors shrink-0"
         id="testimonial-next"
         aria-label="Next testimonial"
       >
-        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -154,6 +164,11 @@ const testimonials = [
     spaceBetween: 8,
     breakpoints: {
       768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 16,
+      },
+      1024: {
         slidesPerView: 3,
         slidesPerGroup: 3,
         spaceBetween: 24,
@@ -171,6 +186,14 @@ const testimonials = [
 </script>
 
 <style is:global>
+  /* Swiper's `.swiper-slide { height: 100% }` gives the slide a non-auto cross
+     size, which disables flex stretch and lets each card size to its own text.
+     Forcing auto restores stretch, so every card matches the tallest. */
+  .testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+  }
+
   .testimonial-pagination {
     display: flex;
     align-items: center;
